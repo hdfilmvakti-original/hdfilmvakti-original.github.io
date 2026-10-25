@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HdFilmVakti - Film İzle</title>
+    <!-- Font Awesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #141414;
+            --card-hover: #1f1f1f;
+            --primary-red: #e50914;
+            --primary-red-hover: #ff1e27;
+            --text-color: #ffffff;
+            --text-muted: #aaaaaa;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- ÜST GEZİNTİ ÇUBUĞU (NAVBAR) --- */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-red);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* --- ANA İÇERİK DÜZENİ --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 20px;
+        }
+
+        /* --- VİDEO OYNATICI BÖLÜMÜ --- */
+        .player-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Ekran Oranı */
+            height: 0;
+            background-color: #050505;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .movie-info {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .movie-title-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .movie-title {
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .movie-badge {
+            background-color: var(--primary-red);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .movie-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 900px;
+        }
+
+        /* --- FILM IZGARASI (GRID) --- */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 12px;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+            border-color: var(--primary-red);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background-color: #080808;
+        }
+
+        .poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-card:hover .poster-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-overlay i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+        }
+
+        .movie-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .card-details {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .rating {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        /* --- REPOSITORY REHBER KUTUSU --- */
+        .guide-box {
+            background-color: #111;
+            border: 1px dashed var(--primary-red);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .guide-box h3 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .guide-box code {
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ff9900;
+        }
+
+        /* --- RESPONSIVE TASARIM --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .poster-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-circle-play"></i> HdFilmVakti
+        </a>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterMovies()" placeholder="Film ara...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </header>
+
+    <!-- ANA İÇERİK -->
+    <div class="container">
+
+        <!-- VİDEO OYNATICI SEKSİYONU -->
+        <section class="player-section" id="player">
+            <div class="iframe-container">
+                <iframe id="mainPlayer" src="https://www.youtube.com/embed/L3oOldviIgY" allowfullscreen></iframe>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title-wrap">
+                    <h1 class="movie-title" id="currentTitle">Interstellar (Örnek Film)</h1>
+                    <span class="movie-badge" id="currentRating"><i class="fa-solid fa-star"></i> 8.7</span>
+                </div>
+                <p class="movie-description" id="currentDesc">
+                    İnsanlığın son günlerinde, bilim insanları ve astronotlardan oluşan bir ekip, insan türünün devamını sağlamak için uzayda yeni bir yaşanabilir gezegen arayışına girer.
+                </p>
+            </div>
+        </section>
+
+        <!-- FILM LİSTESİ -->
+        <h2 class="section-title">Popüler Filmler</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <!-- Filmler Javascript ile buraya yüklenecek -->
+        </div>
+
+    </div>
+
+    <script>
+        // ==========================================
+        // 🎬 FİLM VERİ TABANI (BURADAN YENİ FİLM EKLERSİNİZ)
+        // ==========================================
+        const movies = [
+            {
+                id: 1,
+                title: "Interstellar",
+                description: "İnsanlığın son günlerinde, bir ekip astronot insanlığın yaşayabileceği yeni bir gezegen bulmak için solucan deliğinden geçer.",
+                rating: "8.7",
+                year: "2014",
+                poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80",
+                embedUrl: "https://www.youtube.com/embed/L3oOldviIgY"
+            },
+            {
+                id: 2,
+                title: "Inception",
+                description: "Zihin hırsızlığı konusunda uzmanlaşmış bir hırsıza, bir hedefin zihnine fikir yerleştirmesi için son bir şans verilir.",
+                rating: "8.8",
+                year: "2010",
+                poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
+                embedUrl: "https://www.youtube.com/embed/YoHD9XEInc0"
+            },
+            {
+                id: 3,
+                title: "The Dark Knight",
+                description: "Batman, Gotham Şehrini kaosun eşiğine getiren psikopat suç dehası Joker ile yüzleşmek zorundadır.",
+                rating: "9.0",
+                year: "2008",
+                poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80",
+                embedUrl: "https://www.youtube.com/embed/EXeTwQWrcwY"
+            },
+            {
+                id: 4,
+                title: "Cyberpunk World",
+                description: "Geleceğin neon ışıklı distopik şehrinde hayatta kalmaya çalışan bir hackerın aksiyon dolu hikayesi.",
+                rating: "7.9",
+                year: "2023",
+                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&q=80",
+                embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            }
+        ];
+
+        // --- FİLMLERİ EKRANA BASTIRMA FONKSİYONU ---
+        function loadMovies(movieList) {
+            const grid = document.getElementById('moviesGrid');
+            grid.innerHTML = '';
+
+            if(movieList.length === 0) {
+                grid.innerHTML = '<p style="color:var(--text-muted);">Aramanıza uygun film bulunamadı.</p>';
+                return;
+            }
+
+            movieList.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.onclick = () => selectMovie(movie);
+
+                card.innerHTML = `
+                    <div class="poster-wrapper">
+                        <img src="${movie.poster}" alt="${movie.title}" onerror="this.src='https://placehold.co/400x600/141414/e50914?text=Poster+Yok'">
+                        <div class="play-overlay">
+                            <i class="fa-solid fa-circle-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title">${movie.title}</div>
+                        <div class="card-meta">
+                            <span>${movie.year}</span>
+                            <span class="rating"><i class="fa-solid fa-star"></i> ${movie.rating}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- FİLM SEÇİLDİĞİNDE OYNATICIYI GÜNCELLEME VE YUKARI KAYDIRMA ---
+        function selectMovie(movie) {
+            document.getElementById('mainPlayer').src = movie.embedUrl;
+            document.getElementById('currentTitle').innerText = movie.title;
+            document.getElementById('currentDesc').innerText = movie.description;
+            document.getElementById('currentRating').innerHTML = `<i class="fa-solid fa-star"></i> ${movie.rating}`;
+            
+            // Yumuşakça oynatıcıya kaydır
+            document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- FİLM ARAMA / FİLTRELEME FONKSİYONU ---
+        function filterMovies() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = movies.filter(movie => 
+                movie.title.toLowerCase().includes(query)
+            );
+            loadMovies(filtered);
+        }
+
+        // Sayfa yüklendiğinde filmleri göster
+        window.onload = () => {
+            loadMovies(movies);
+        };
+    </script>
+</body>
+</html>
