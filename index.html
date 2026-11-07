@@ -373,8 +373,386 @@
                 description: "Zihin hırsızlığı konusunda uzmanlaşmış bir hırsıza, bir hedefin zihnine fikir yerleştirmesi için son bir şans verilir.",
                 rating: "8.8",
                 year: "2010",
-                poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
-                embedUrl: "https://voe.sx/e/yslr10fadn3t"
+                poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w"Lego Filmi" listedeki diğer filmlerin üzerine eklendi. Güncellenmiş ve eksiksiz tam HTML kodu aşağıdadır:
+
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HdFilmVakti - Film İzle</title>
+    <!-- Font Awesome İkonları -->
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #141414;
+            --card-hover: #1f1f1f;
+            --primary-red: #e50914;
+            --primary-red-hover: #ff1e27;
+            --text-color: #ffffff;
+            --text-muted: #aaaaaa;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- ÜST GEZİNTİ ÇUBUĞU (NAVBAR) --- */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-red);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* --- ANA İÇERİK DÜZENİ --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 20px;
+        }
+
+        /* --- VİDEO OYNATICI BÖLÜMÜ --- */
+        .player-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .custom-embed-wrap {
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Ekran Oranı */
+            height: 0;
+            background-color: #050505;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .movie-info {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .movie-title-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .movie-title {
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .movie-badge {
+            background-color: var(--primary-red);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .movie-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 900px;
+        }
+
+        /* --- FILM IZGARASI (GRID) --- */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 12px;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+            border-color: var(--primary-red);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background-color: #080808;
+        }
+
+        .poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-card:hover .poster-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-overlay i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+        }
+
+        .movie-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .card-details {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .rating {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        /* --- RESPONSIVE TASARIM --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .poster-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-circle-play"></i> HdFilmVakti
+        </a>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterMovies()" placeholder="Film ara...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </header>
+
+    <!-- ANA İÇERİK -->
+    <div class="container">
+
+        <!-- VİDEO OYNATICI SEKSİYONU -->
+        <section class="player-section" id="player">
+            <!-- EMBED BURAYA EKLENDİ (PLAYER'IN ÜSTÜNE) -->
+            <div class="custom-embed-wrap">
+                <iframe src="[https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915](https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915)" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>
+            </div>
+
+            <div class="iframe-container">
+                <iframe id="mainPlayer" src="[https://www.youtube.com/embed/L3oOldviIgY](https://www.youtube.com/embed/L3oOldviIgY)" allowfullscreen></iframe>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title-wrap">
+                    <h1 class="movie-title" id="currentTitle">Interstellar (Örnek Film)</h1>
+                    <span class="movie-badge" id="currentRating"><i class="fa-solid fa-star"></i> 8.7</span>
+                </div>
+                <p class="movie-description" id="currentDesc">
+                    İnsanlığın son günlerinde, bilim insanları ve astronotlardan oluşan bir ekip, insan türünün devamını sağlamak için uzayda yeni bir yaşanabilir gezegen arayışına girer.
+                </p>
+            </div>
+        </section>
+
+        <!-- FILM LİSTESİ -->
+        <h2 class="section-title">Popüler Filmler</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <!-- Filmler Javascript ile buraya yüklenecek -->
+        </div>
+
+    </div>
+
+    <script>
+        const movies = [
+            {
+                id: 1,
+                title: "Esrarengiz Kasaba",
+                description: "İkiz kardeşler Dipper ve Mabel Pines'ın aileleri yazın Dipper ve Mabel'ı Harika Amca Stanin yanına Gravity Falls, Oregon'a gönderirler.",
+                rating: "no_rating",
+                year: "2012",
+                poster: "[https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.i8pGdzyEej0C8GtVs5wllgHaLH%3Fpid%3DApi&f=1&ipt=c0db4ff792477fec6cb70180e36b0a32e761955f7a255c068ba2cbe652c6a7d3&ipo=images](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.i8pGdzyEej0C8GtVs5wllgHaLH%3Fpid%3DApi&f=1&ipt=c0db4ff792477fec6cb70180e36b0a32e761955f7a255c068ba2cbe652c6a7d3&ipo=images)",
+                embedUrl: "[https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f](https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f)"
+            },            
+            {
+                id: 2,
+                title: "Interstellar",
+                description: "İnsanlığın son günlerinde, bir ekip astronot insanlığın yaşayabileceği yeni bir gezegen bulmak için solucan deliğinden geçer.",
+                rating: "8.7",
+                year: "2014",
+                poster: "[https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80](https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80)",
+                embedUrl: "[https://drive.google.com/file/d/1H4-N61oWe_Ugl7_fGf332FEsl4jj95rh/preview](https://drive.google.com/file/d/1H4-N61oWe_Ugl7_fGf332FEsl4jj95rh/preview)"
+            },
+            {
+                id: 3,
+                title: "Inception",
+                description: "Zihin hırsızlığı konusunda uzmanlaşmış bir hırsıza, bir hedefin zihnine fikir yerleştirmesi için son bir şans verilir.",
+                rating: "8.8",
+                year: "2010",
+                poster: "[https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80](https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80)",
+                embedUrl: "[https://voe.sx/e/yslr10fadn3t](https://voe.sx/e/yslr10fadn3t)"
             },
             {
                 id: 4,
@@ -382,8 +760,8 @@
                 description: "Batman, Gotham Şehrini kaosun eşiğine getiren psikopat suç dehası Joker ile yüzleşmek zorundadır.",
                 rating: "9.0",
                 year: "2008",
-                poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80",
-                embedUrl: "https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview"
+                poster: "[https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80](https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80)",
+                embedUrl: "[https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview](https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview)"
             },
             {
                 id: 5,
@@ -391,8 +769,35 @@
                 description: "Minyon adı verilen ve muz seven küçük sarı yaratıkların hikayesi.",
                 rating: "6.4",
                 year: "2015",
-                poster: "https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg",
-                embedUrl: "https://drive.google.com/file/d/1K9IYRJfdLYplVgE0l9-0OT2-6MfEfGox/preview"
+                poster: "[https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg](https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg)",
+                embedUrl: "[https://drive.google.com/file/d/1K9IYRJfdLYplVgE0l9-0OT2-6MfEfGox/preview](https://drive.google.com/file/d/1K9IYRJfdLYplVgE0l9-0OT2-6MfEfGox/preview)"
+            },
+            {
+                id: 6,
+                title: "Son Sefer",
+                description: "Gerilim dolu anların ve zorlu bir mücadelenin merkezinde yer alan Son Sefer, izleyicilerine soluk soluğa bir macera sunuyor.",
+                rating: "3.7",
+                year: "2025",
+                poster: "[https://cdn.jetfilmizle.app/uploads/films/2025/s/son-sefer-poster-small.webp](https://cdn.jetfilmizle.app/uploads/films/2025/s/son-sefer-poster-small.webp)",
+                embedUrl: "[https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3](https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3)"
+            },
+            {
+                id: 7,
+                title: "Wonder",
+                description: "Yüz farklılığı bulunan küçük bir çocuğun normal bir okula başlayarak çevresindekilere önyargıları aşmayı ve sevgiyi öğretmesini konu alan dokunaklı bir yapım.",
+                rating: "7.9",
+                year: "2017",
+                poster: "[https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.r1yvlvKtYKDaRh8zDD3P-wHaLa%3Fr%3D0%26pid%3DApi&f=1&ipt=d3b05cfb34bf491f9f90ab33019b8aa51d1022f41b44513def88bcfefb032130&ipo=images](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.r1yvlvKtYKDaRh8zDD3P-wHaLa%3Fr%3D0%26pid%3DApi&f=1&ipt=d3b05cfb34bf491f9f90ab33019b8aa51d1022f41b44513def88bcfefb032130&ipo=images)",
+                embedUrl: "[https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76](https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76)"
+            },
+            {
+                id: 8,
+                title: "Lego Filmi",
+                description: "Sıradan bir Lego figürü olan Emmet'in, evreni kötü kalpli bir zorbaya karşı kurtarmakla görevlendirilen 'Özel' kişi sanılmasıyla başlayan eğlenceli ve macera dolu bir hikaye.",
+                rating: "7.7",
+                year: "2015",
+                poster: "[https://cdn.jetfilmizle.app/uploads/films/2014/l/lego-filmi-poster-small.webp](https://cdn.jetfilmizle.app/uploads/films/2014/l/lego-filmi-poster-small.webp)",
+                embedUrl: "[https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645](https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645)"
             }
         ];
 
@@ -410,9 +815,9 @@
                 card.className = 'movie-card';
                 card.onclick = () => selectMovie(movie);
 
-                card.innerHTML = `
-                    <div class="poster-wrapper">
-                        <img src="${movie.poster}" alt="${movie.title}" onerror="this.src='https://placehold.co/400x600/141414/e50914?text=Poster+Yok'">
+                card.innerHTML = 
+                    `<div class="poster-wrapper">
+                        <img src="${movie.poster}" alt="${movie.title}" onerror="this.src='[https://placehold.co/400x600/141414/e50914?text=Poster+Yok](https://placehold.co/400x600/141414/e50914?text=Poster+Yok)'">
                         <div class="play-overlay">
                             <i class="fa-solid fa-circle-play"></i>
                         </div>
@@ -423,8 +828,7 @@
                             <span>${movie.year}</span>
                             <span class="rating"><i class="fa-solid fa-star"></i> ${movie.rating}</span>
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 grid.appendChild(card);
             });
         }
