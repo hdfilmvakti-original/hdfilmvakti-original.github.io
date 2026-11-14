@@ -1,0 +1,14 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "HdFilmVakti",
+  "orientation": "any",
+  "scope": "/https://hdfilmvakti-original.github.io/#",
+  "short_name": "hdfilmvakti",
+  "start_url": "/https://hdfilmvakti-original.github.io/",
+  "theme_color": "#ff0000",
+  "id": "hdfilmvakti",
+  "description": "Turkce dublaj filmler icin idealdir",
+  "lang": "tr"
+}
