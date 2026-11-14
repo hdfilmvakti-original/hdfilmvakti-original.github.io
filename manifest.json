@@ -3,12 +3,20 @@
   "dir": "ltr",
   "display": "standalone",
   "name": "HdFilmVakti",
+  "short_name": "HdFilmVakti",
   "orientation": "any",
-  "scope": "/",
-  "short_name": "hdfilmvakti",
+  "scope": "./",
   "start_url": "./index.html",
   "theme_color": "#e50914",
   "id": "hdfilmvakti",
-  "description": "Türkçe dublaj ve animasyon filmler için ideal film izleme platformu",
-  "lang": "tr"
+  "description": "Türkçe dublaj filmler için idealdir",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "./red-play-button-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
