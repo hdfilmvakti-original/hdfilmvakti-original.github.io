@@ -1,14 +1,14 @@
 {
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "dir": "ltr",
   "display": "standalone",
   "name": "HdFilmVakti",
   "orientation": "any",
-  "scope": "/https://hdfilmvakti-original.github.io/#",
+  "scope": "/",
   "short_name": "hdfilmvakti",
-  "start_url": "/https://hdfilmvakti-original.github.io/",
-  "theme_color": "#ff0000",
+  "start_url": "./index.html",
+  "theme_color": "#e50914",
   "id": "hdfilmvakti",
-  "description": "Turkce dublaj filmler icin idealdir",
+  "description": "Türkçe dublaj ve animasyon filmler için ideal film izleme platformu",
   "lang": "tr"
 }
