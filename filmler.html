@@ -9,6 +9,10 @@
     <meta name="theme-color" content="#e50914">
     <!-- Font Awesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ADSTERRA SOCIAL BAR REKLAMI -->
+    <script data-cfasync="false" src="https://bancadeltempoidea.org/14/6ea58c8f0f178c48b00125c694999bf4"></script>
+
     <style>
         :root {
             --bg-color: #000000;
@@ -102,6 +106,20 @@
             padding: 25px 20px;
         }
 
+        /* --- REKLAM ALANLARI STİLİ --- */
+        .ad-banner-top {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            min-height: 50px;
+        }
+
+        .native-banner-wrap {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
         /* --- YORUM AÇ/KAPA BUTONU --- */
         .comment-toggle-btn {
             background-color: var(--primary-red);
@@ -128,7 +146,7 @@
             width: 100%;
             border-radius: 8px;
             overflow: hidden;
-            display: none; /* Başlangıçta gizli */
+            display: none;
         }
 
         /* --- VİDEO OYNATICI BÖLÜMÜ --- */
@@ -144,7 +162,7 @@
         .iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Ekran Oranı */
+            padding-bottom: 56.25%;
             height: 0;
             background-color: #050505;
             border-radius: 8px;
@@ -343,6 +361,20 @@
     <!-- ANA İÇERİK -->
     <div class="container">
 
+        <!-- KÜÇÜK BANNER REKLAM (320x50) -->
+        <div class="ad-banner-top">
+            <script>
+                atOptions = {
+                    'key' : 'df15e6041b7eec9c533859810b9faeb9',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://bancadeltempoidea.org/22/df15e6041b7eec9c533859810b9faeb9"></script>
+        </div>
+
         <!-- VİDEO OYNATICI SEKSİYONU -->
         <section class="player-section" id="player">
             <!-- YORUMLARI AÇIP KAPATMA BUTONU -->
@@ -369,6 +401,12 @@
             </div>
         </section>
 
+        <!-- NATIVE BANNER REKLAMI -->
+        <div class="native-banner-wrap">
+            <script async="async" data-cfasync="false" src="https://bancadeltempoidea.org/21/63d7e47e87e3d44c8cf68ad63392a3af"></script>
+            <div id="container-63d7e47e87e3d44c8cf68ad63392a3af"></div>
+        </div>
+
         <!-- FILM LİSTESİ -->
         <h2 class="section-title">Popüler Filmler</h2>
         <div class="movies-grid" id="moviesGrid">
@@ -378,6 +416,8 @@
     </div>
 
     <script>
+        const SMARTLINK_URL = "https://directyp.org/4/34c0db7896a7f26f4e06d9c3d136054c";
+
         const movies = [
             {
                 id: 1,
@@ -387,7 +427,7 @@
                 year: "2012",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.i8pGdzyEej0C8GtVs5wllgHaLH%3Fpid%3DApi&f=1&ipt=c0db4ff792477fec6cb70180e36b0a32e761955f7a255c068ba2cbe652c6a7d3&ipo=images",
                 embedUrl: "https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f"
-            },             
+            },         
             {
                 id: 2,
                 title: "Interstellar",
@@ -598,6 +638,11 @@
         }
 
         function selectMovie(movie) {
+            // %25 ihtimalle Smartlink aç (sonradan eklenen filmler dahil hepsinde geçerli)
+            if (Math.random() < 0.25) {
+                window.open(SMARTLINK_URL, '_blank');
+            }
+
             document.getElementById('mainPlayer').src = movie.embedUrl;
             document.getElementById('currentTitle').innerText = movie.title;
             document.getElementById('currentDesc').innerText = movie.description;
@@ -614,9 +659,8 @@
             loadMovies(filtered);
         }
 
-        window.onload = () => {
-            loadMovies(movies);
-        };
+        // Reklam scriptlerini beklemeden filmleri anında yükle
+        loadMovies(movies);
 
         // PWA Service Worker Kaydı
         if ('serviceWorker' in navigator) {
