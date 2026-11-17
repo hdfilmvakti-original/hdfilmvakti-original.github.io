@@ -298,7 +298,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-weight;
         }
 
         .card-title {
@@ -421,6 +421,24 @@
         const movies = [
             {
                 id: 1,
+                title: "The Amazing Digital Circus",
+                description: "Garip ve dijital bir illüzyon evreninde mahsur kalan tuhaf karakterlerin, çıkış yolu ararken akıl sağlığını korumaya çalıştığı, sürreal ve absürt maceralarla dolu popüler animasyon fenomeni.",
+                rating: "8.9",
+                year: "2024",
+                poster: "https://www.hdfilmcehennemi.nl/images/list/poster/the-amazing-digital-circus.webp",
+                embedUrl: "https://diziplayer.lovable.app/izle/5f356b23-ac7f-443a-b6cb-7446677cecca"
+            },
+            {
+                id: 2,
+                title: "Bizim Köyün Şarkısı",
+                description: "Şehrin gürültüsünden uzaklaşıp köy hayatına adapte olmaya çalışan çocukların, hem dostluğu yeniden keşfettikleri hem de unutulmaz maceralara atıldıkları neşe dolu bir aile komedisi.",
+                rating: "5.9",
+                year: "2018",
+                poster: "https://cdn.jetfilmizle.app/uploads/films/2018/b/bizim-koyun-sarkisi-poster-large.webp",
+                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/b6205239-3f8f-40ba-80ad-24b381d185f4"
+            },
+            {
+                id: 3,
                 title: "Esrarengiz Kasaba",
                 description: "İkiz kardeşler Dipper ve Mabel Pines'ın aileleri yazın Dipper ve Mabel'ı Harika Amca Stanin yanına Gravity Falls, Oregon'a gönderirler.",
                 rating: "no_rating",
@@ -429,7 +447,7 @@
                 embedUrl: "https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f"
             },         
             {
-                id: 2,
+                id: 4,
                 title: "Interstellar",
                 description: "İnsanlığın son günlerinde, bir ekip astronot insanlığın yaşayabileceği yeni bir gezegen bulmak için solucan deliğinden geçer.",
                 rating: "8.7",
@@ -438,16 +456,16 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/00a6a0db-a519-4fac-8b67-6832f5e8247a"
             },
             {
-                id: 3,
+                id: 5,
                 title: "Inception",
                 description: "Zihin hırsızlığı konusunda uzmanlaşmış bir hırsıza, bir hedefin zihnine fikir yerleştirmesi için son bir şans verilir.",
                 rating: "8.8",
                 year: "2010",
                 poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
-                embedUrl: "https://voe.sx/e/yslr10fadn3t"
+                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/6ec370f4-c724-4f4c-88b0-958c8bf2bfde"
             },
             {
-                id: 4,
+                id: 6,
                 title: "The Dark Knight",
                 description: "Batman, Gotham Şehrini kaosun eşiğine getiren psikopat suç dehası Joker ile yüzleşmek zorundadır.",
                 rating: "9.0",
@@ -456,16 +474,16 @@
                 embedUrl: "https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Minyonlar",
                 description: "Minyon adı verilen ve muz seven küçük sarı yaratıkların hikayesi.",
                 rating: "6.4",
                 year: "2015",
                 poster: "https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg",
-                embedUrl: "https://drive.google.com/file/d/1K9IYRJfdLYplVgE0l9-0OT2-6MfEfGox/preview"
+                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/35d17a5b-f52d-4073-98d3-04ad8986093a"
             },
             {
-                id: 6,
+                id: 8,
                 title: "Son Sefer",
                 description: "Gerilim dolu anların ve zorlu bir mücadelenin merkezinde yer alan Son Sefer, izleyicilerine soluk soluğa bir macera sunuyor.",
                 rating: "3.7",
@@ -474,7 +492,7 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3"
             },
             {
-                id: 7,
+                id: 9,
                 title: "Wonder",
                 description: "Yüz farklılığı bulunan küçük bir çocuğun normal bir okula başlayarak çevresindekilere önyargıları aşmayı ve sevgiyi öğretmesini konu alan dokunaklı bir yapım.",
                 rating: "7.9",
@@ -483,7 +501,7 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76"
             },
             {
-                id: 8,
+                id: 10,
                 title: "Lego Filmi",
                 description: "Sıradan bir Lego figürü olan Emmet'in, evreni kötü kalpli bir zorbaya karşı kurtarmakla görevlendirilen 'Özel' kişi sanılmasıyla başlayan eğlenceli ve macera dolu bir hikaye.",
                 rating: "7.7",
@@ -492,7 +510,7 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645"
             },
             {
-                id: 9,
+                id: 11,
                 title: "Kaptan Düşükdon - Destansı İlk Film",
                 description: "Yaramaz ve hayal gücü geniş iki arkadaş George ve Harold'ın, okul müdürlerini hipnoz ederek kendi yarattıkları süper kahraman Kaptan Düşükdon'a dönüştürmeleriyle gelişen eğlenceli olaylar.",
                 rating: "6.2",
@@ -501,7 +519,7 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/5208ae25-0db2-4f77-abe2-d41623a6e71b"
             },
             {
-                id: 10,
+                id: 12,
                 title: "Minecraft Filmi",
                 description: "Bloklu ve hayal gücünün sınırlarını zorlayan kübik bir evrende geçen, beklenmedik maceralarla dolu eğlenceli bir hayatta kalma ve keşif hikayesi.",
                 rating: "5.5",
@@ -510,16 +528,16 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/1bf7ac0a-235c-417d-8a8f-5edbaba4ae1c"
             },
             {
-                id: 11,
+                id: 13,
                 title: "Lego Filmi 2",
                 description: "Bricksburg halkının yeni ve gizemli uzaylı tehditleriyle mücadelesini ve kahramanların dostluklarını korumak için çıktığı galaksiler arası renkli macerayı konu alıyor.",
                 rating: "6.5",
                 year: "2019",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2019/l/lego-filmi-2-poster-small.webp",
-                embedUrl: "https://drive.google.com/file/preview?id=1iGHUawfircHaIw1kK8p8rCCAHhsaVqvx"
+                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/fd2e3179-8a78-4f7e-a098-08cb000c11fe"
             },
             {
-                id: 12,
+                id: 14,
                 title: "Lego Ninjago Filmi",
                 description: "Gece gizli birer ninja olarak Ninjago Adası'nı savunan, gündüz ise sıradan lise öğrencileri olan Lloyd ve arkadaşlarının, kötü savaş lordu Garmadon'a karşı verdiği macera dolu mücadele.",
                 rating: "6.1",
@@ -528,7 +546,7 @@
                 embedUrl: "https://byseqekaho.com/e/x1kbc613gee9"
             },
             {
-                id: 13,
+                id: 15,
                 title: "Titanik",
                 description: "Farklı sosyal sınıflardan gelen genç Jack ve Rose'un, batmaz denilen devasa Titanik gemisindeki unutulmaz ve trajik aşk hikayesi.",
                 rating: "7.9",
@@ -537,7 +555,7 @@
                 embedUrl: "https://byseqekaho.com/e/ujrz16zm8gke"
             },
             {
-                id: 14,
+                id: 16,
                 title: "Rüzgarlı Vadi",
                 description: "Doğanın ve gizemli güçlerin hüküm sürdüğü büyüleyici bir dünyada, keşfedilmeyi bekleyen sırların ve duygusal yolculukların merkezinde geçen etkileyici bir animasyon başyapıtı.",
                 rating: "8.0",
@@ -546,7 +564,7 @@
                 embedUrl: "https://vidmoly.org/embed-s7ullyx26mc4.html"
             },
             {
-                id: 15,
+                id: 17,
                 title: "Kuzular Firarda",
                 description: "Saf ve sevimli koyun Shaun ile sürüsünün, çiftçilerini kurtarmak için büyük şehre doğru atıldığı ve birbirinden komik, tehlikeli olaylarla dolu eğlenceli animasyon macerası.",
                 rating: "7.3",
@@ -555,7 +573,7 @@
                 embedUrl: "https://vidmoly.me/v/kttjftvyfiek"
             },
             {
-                id: 16,
+                id: 18,
                 title: "Spider-Man: Yeni Bir Gün",
                 description: "Çoklu evrenlerin ve yeni tehditlerin eşiğinde, Peter Parker'ın hem sıradan hayatını dengelemeye hem de maskeli kahraman olarak yepyeni bir sayfaya yelken açmasını konu alan nefes kesici bir macera.",
                 rating: "7.9",
@@ -564,7 +582,7 @@
                 embedUrl: "https://drive.google.com/file/d/1svFRK4QP_0sgZVBWHDvVBJEWEtd4L6xl/preview"
             },
             {
-                id: 17,
+                id: 19,
                 title: "Greenlerin Büyükşehir Maceraları",
                 description: "Kırsal yaşamı geride bırakıp büyük şehre taşınan neşeli Cricket Green ve ailesinin, kent hayatına uyum sağlamaya çalışırken başlarına açtıkları eğlenceli ve komik olaylar.",
                 rating: "7.6",
@@ -573,7 +591,7 @@
                 embedUrl: "https://diziplayer.lovable.app/izle/9c146c43-6ae2-4ce4-b976-445b66c7ac9d"
             },
             {
-                id: 18,
+                id: 20,
                 title: "The Double",
                 description: "Hayatının sıradanlığından ve görünmezliğinden şikayet eden silik bir memurun, iş yerine birebir kendisine benzeyen esrarengiz bir ikizinin gelmesiyle altüst olan psikolojik ve gerilim dolu hikayesi.",
                 rating: "6.5",
@@ -582,7 +600,7 @@
                 embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/9403a9da-7efd-40fe-98ff-1b063ec07e0f"
             },
             {
-                id: 19,
+                id: 21,
                 title: "Matilda",
                 description: "Üstün zekalı ve kitap kurdu küçük Matilda'nın, kendisine değer vermeyen ihmalkar ailesine ve okuldaki ezici müdüre karşı keşfettiği olağanüstü telekinetik güçleriyle mücadelesini anlatan sıcak ve sihirli bir aile komedisi.",
                 rating: "7.9",
@@ -638,7 +656,7 @@
         }
 
         function selectMovie(movie) {
-            // %25 ihtimalle Smartlink aç (sonradan eklenen filmler dahil hepsinde geçerli)
+            // %25 ihtimalle Smartlink aç
             if (Math.random() < 0.25) {
                 window.open(SMARTLINK_URL, '_blank');
             }
@@ -659,7 +677,7 @@
             loadMovies(filtered);
         }
 
-        // Reklam scriptlerini beklemeden filmleri anında yükle
+        // Filmleri hemen yükle
         loadMovies(movies);
 
         // PWA Service Worker Kaydı
