@@ -113,32 +113,13 @@
             align-items: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
-            min-height: 90px;
+            margin-bottom: 25px;
         }
 
         .native-banner-wrap {
             margin: 30px 0;
             display: flex;
             justify-content: center;
-        }
-
-        .main-content-layout {
-            display: flex;
-            gap: 25px;
-        }
-
-        .sidebar-left {
-            flex: 0 0 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .content-right {
-            flex-grow: 1;
-            min-width: 0;
         }
 
         /* --- YORUM AÇ/KAPA BUTONU --- */
@@ -345,15 +326,6 @@
         }
 
         /* --- RESPONSIVE TASARIM --- */
-        @media (max-width: 992px) {
-            .main-content-layout {
-                flex-direction: column;
-            }
-            .sidebar-left {
-                display: none;
-            }
-        }
-
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -391,7 +363,7 @@
     <!-- ANA İÇERİK -->
     <div class="container">
 
-        <!-- ÜST BANNER REKLAMLARI (728x90, 468x60 ve 320x50) -->
+        <!-- YATAY BANNER REKLAMLARI -->
         <div class="ad-banner-top">
             <!-- 728x90 Banner -->
             <script>
@@ -430,92 +402,42 @@
             <script src="https://bancadeltempoidea.org/22/df15e6041b7eec9c533859810b9faeb9"></script>
         </div>
 
-        <!-- İÇERİK DÜZENİ (Sol Yan Bannerlar + Sağ Ana İçerik) -->
-        <div class="main-content-layout">
-            
-            <!-- SOL TARAF: DİKEY BANNERLAR (160x600, 160x300, 300x250) -->
-            <div class="sidebar-left">
-                <div>
-                    <script>
-                      atOptions = {
-                        'key' : '718c130d35a375cd0521d3c761d85e4e',
-                        'format' : 'iframe',
-                        'height' : 600,
-                        'width' : 160,
-                        'params' : {}
-                      };
-                    </script>
-                    <script src="https://bancadeltempoidea.org/22/718c130d35a375cd0521d3c761d85e4e"></script>
-                </div>
+        <!-- VİDEO OYNATICI SEKSİYONU -->
+        <section class="player-section" id="player">
+            <!-- YORUMLARI AÇIP KAPATMA BUTONU -->
+            <button class="comment-toggle-btn" onclick="toggleComments()">
+                <i class="fa-solid fa-comments"></i> <span id="commentBtnText">Yorumları Aç</span>
+            </button>
 
-                <div>
-                    <script>
-                      atOptions = {
-                        'key' : 'e449fe890dd2ab44943c4ba8446e0bb2',
-                        'format' : 'iframe',
-                        'height' : 300,
-                        'width' : 160,
-                        'params' : {}
-                      };
-                    </script>
-                    <script src="https://bancadeltempoidea.org/22/e449fe890dd2ab44943c4ba8446e0bb2"></script>
-                </div>
-
-                <div>
-                    <script>
-                      atOptions = {
-                        'key' : '8257864b135fb39b6bf697473d2f315b',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                      };
-                    </script>
-                    <script src="https://bancadeltempoidea.org/22/8257864b135fb39b6bf697473d2f315b"></script>
-                </div>
+            <!-- YORUM EMBED BÖLÜMÜ -->
+            <div class="custom-embed-wrap" id="commentSection">
+                <iframe src="https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>
             </div>
 
-            <!-- SAĞ TARAF: VİDEO VE FİLM LİSTESİ -->
-            <div class="content-right">
-                <!-- VİDEO OYNATICI SEKSİYONU -->
-                <section class="player-section" id="player">
-                    <!-- YORUMLARI AÇIP KAPATMA BUTONU -->
-                    <button class="comment-toggle-btn" onclick="toggleComments()">
-                        <i class="fa-solid fa-comments"></i> <span id="commentBtnText">Yorumları Aç</span>
-                    </button>
-
-                    <!-- YORUM EMBED BÖLÜMÜ -->
-                    <div class="custom-embed-wrap" id="commentSection">
-                        <iframe src="https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>
-                    </div>
-
-                    <div class="iframe-container">
-                        <iframe id="mainPlayer" src="https://www.youtube.com/embed/L3oOldviIgY" allowfullscreen></iframe>
-                    </div>
-                    <div class="movie-info">
-                        <div class="movie-title-wrap">
-                            <h1 class="movie-title" id="currentTitle">Interstellar (Örnek Film)</h1>
-                            <span class="movie-badge" id="currentRating"><i class="fa-solid fa-star"></i> 8.7</span>
-                        </div>
-                        <p class="movie-description" id="currentDesc">
-                            İnsanlığın son günlerinde, bilim insanları ve astronotlardan oluşan bir ekip, insan türünün devamını sağlamak için uzayda yeni bir yaşanabilir gezegen arayışına girer.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- NATIVE BANNER REKLAMI -->
-                <div class="native-banner-wrap">
-                    <script async="async" data-cfasync="false" src="https://bancadeltempoidea.org/21/63d7e47e87e3d44c8cf68ad63392a3af"></script>
-                    <div id="container-63d7e47e87e3d44c8cf68ad63392a3af"></div>
-                </div>
-
-                <!-- FILM LİSTESİ -->
-                <h2 class="section-title">Popüler Filmler</h2>
-                <div class="movies-grid" id="moviesGrid">
-                    <!-- Filmler Javascript ile buraya yüklenecek -->
-                </div>
+            <div class="iframe-container">
+                <iframe id="mainPlayer" src="https://www.youtube.com/embed/L3oOldviIgY" allowfullscreen></iframe>
             </div>
+            <div class="movie-info">
+                <div class="movie-title-wrap">
+                    <h1 class="movie-title" id="currentTitle">Interstellar (Örnek Film)</h1>
+                    <span class="movie-badge" id="currentRating"><i class="fa-solid fa-star"></i> 8.7</span>
+                </div>
+                <p class="movie-description" id="currentDesc">
+                    İnsanlığın son günlerinde, bilim insanları ve astronotlardan oluşan bir ekip, insan türünün devamını sağlamak için uzayda yeni bir yaşanabilir gezegen arayışına girer.
+                </p>
+            </div>
+        </section>
 
+        <!-- NATIVE BANNER REKLAMI -->
+        <div class="native-banner-wrap">
+            <script async="async" data-cfasync="false" src="https://bancadeltempoidea.org/21/63d7e47e87e3d44c8cf68ad63392a3af"></script>
+            <div id="container-63d7e47e87e3d44c8cf68ad63392a3af"></div>
+        </div>
+
+        <!-- FILM LİSTESİ -->
+        <h2 class="section-title">Popüler Filmler</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <!-- Filmler Javascript ile buraya yüklenecek -->
         </div>
 
     </div>
