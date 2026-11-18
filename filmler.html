@@ -151,6 +151,45 @@
             display: none;
         }
 
+        /* --- KAYNAK (PART/SERVER) SEÇİM BUTONLARI --- */
+        .sources-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            background: #0a0a0a;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .source-btn {
+            background-color: #222;
+            color: #aaa;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .source-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .source-btn.active {
+            background-color: var(--primary-red);
+            color: #fff;
+            border-color: var(--primary-red-hover);
+            box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+        }
+
         /* --- VİDEO OYNATICI BÖLÜMÜ --- */
         .player-section {
             background-color: var(--card-bg);
@@ -197,7 +236,7 @@
         }
 
         .movie-title {
-            fornt-size: 1.8rem;
+            font-size: 1.8rem;
             color: #fff;
             font-weight: 700;
         }
@@ -414,8 +453,13 @@
                 <iframe src="https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>
             </div>
 
+            <!-- OYNATICI ÜSTÜ DİNAMİK KAYNAK SEÇİM BUTONLARI -->
+            <div class="sources-bar" id="sourcesBar">
+                <!-- Javascript ile dinamik dolacak -->
+            </div>
+
             <div class="iframe-container">
-                <iframe id="mainPlayer" src="https://www.youtube.com/embed/L3oOldviIgY" allowfullscreen></iframe>
+                <iframe id="mainPlayer" src="" allowfullscreen></iframe>
             </div>
             <div class="movie-info">
                 <div class="movie-title-wrap">
@@ -453,7 +497,9 @@
                 rating: "8.9",
                 year: "2024",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/the-amazing-digital-circus.webp",
-                embedUrl: "https://diziplayer.lovable.app/izle/5f356b23-ac7f-443a-b6cb-7446677cecca"
+                sources: [
+                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/5f356b23-ac7f-443a-b6cb-7446677cecca" }
+                ]
             },
             {
                 id: 2,
@@ -462,7 +508,9 @@
                 rating: "5.9",
                 year: "2018",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2018/b/bizim-koyun-sarkisi-poster-large.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/b6205239-3f8f-40ba-80ad-24b381d185f4"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/b6205239-3f8f-40ba-80ad-24b381d185f4" }
+                ]
             },
             {
                 id: 3,
@@ -471,7 +519,9 @@
                 rating: "no_rating",
                 year: "2012",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.i8pGdzyEej0C8GtVs5wllgHaLH%3Fpid%3DApi&f=1&ipt=c0db4ff792477fec6cb70180e36b0a32e761955f7a255c068ba2cbe652c6a7d3&ipo=images",
-                embedUrl: "https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f"
+                sources: [
+                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f" }
+                ]
             },         
             {
                 id: 4,
@@ -480,7 +530,9 @@
                 rating: "8.7",
                 year: "2014",
                 poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/00a6a0db-a519-4fac-8b67-6832f5e8247a"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/00a6a0db-a519-4fac-8b67-6832f5e8247a" }
+                ]
             },
             {
                 id: 5,
@@ -489,7 +541,9 @@
                 rating: "8.8",
                 year: "2010",
                 poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/6ec370f4-c724-4f4c-88b0-958c8bf2bfde"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/6ec370f4-c724-4f4c-88b0-958c8bf2bfde" }
+                ]
             },
             {
                 id: 6,
@@ -498,7 +552,9 @@
                 rating: "9.0",
                 year: "2008",
                 poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80",
-                embedUrl: "https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview"
+                sources: [
+                    { name: "Google Drive", url: "https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview" }
+                ]
             },
             {
                 id: 7,
@@ -507,7 +563,9 @@
                 rating: "6.4",
                 year: "2015",
                 poster: "https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/35d17a5b-f52d-4073-98d3-04ad8986093a"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/35d17a5b-f52d-4073-98d3-04ad8986093a" }
+                ]
             },
             {
                 id: 8,
@@ -516,7 +574,9 @@
                 rating: "3.7",
                 year: "2025",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2025/s/son-sefer-poster-small.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3" }
+                ]
             },
             {
                 id: 9,
@@ -525,7 +585,9 @@
                 rating: "7.9",
                 year: "2017",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.r1yvlvKtYKDaRh8zDD3P-wHaLa%3Fr%3D0%26pid%3DApi&f=1&ipt=d3b05cfb34bf491f9f90ab33019b8aa51d1022f41b44513def88bcfefb032130&ipo=images",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76" }
+                ]
             },
             {
                 id: 10,
@@ -534,7 +596,9 @@
                 rating: "7.7",
                 year: "2015",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2014/l/lego-filmi-poster-small.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645" }
+                ]
             },
             {
                 id: 11,
@@ -543,7 +607,9 @@
                 rating: "6.2",
                 year: "2017",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.MqQX2SvU74PYK2m5o2i99gHaKk%3Fpid%3DApi&f=1&ipt=0d2590c47eea2a892fc9b7f1b471688fdbac8be2eb16da2e92d537cf00324935&ipo=images",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/5208ae25-0db2-4f77-abe2-d41623a6e71b"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/5208ae25-0db2-4f77-abe2-d41623a6e71b" }
+                ]
             },
             {
                 id: 12,
@@ -552,7 +618,9 @@
                 rating: "5.5",
                 year: "2025",
                 poster: "https://cdn.sinemalar.com/images/movie/242031/poster/minecraft-1743236587_225x336.jpg",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/1bf7ac0a-235c-417d-8a8f-5edbaba4ae1c"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/1bf7ac0a-235c-417d-8a8f-5edbaba4ae1c" }
+                ]
             },
             {
                 id: 13,
@@ -561,7 +629,9 @@
                 rating: "6.5",
                 year: "2019",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2019/l/lego-filmi-2-poster-small.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/fd2e3179-8a78-4f7e-a098-08cb000c11fe"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/fd2e3179-8a78-4f7e-a098-08cb000c11fe" }
+                ]
             },
             {
                 id: 14,
@@ -570,7 +640,9 @@
                 rating: "6.1",
                 year: "2017",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2017/l/lego-ninjago-filmi-poster-small.webp",
-                embedUrl: "https://byseqekaho.com/e/x1kbc613gee9"
+                sources: [
+                    { name: "Filemoon", url: "https://byseqekaho.com/e/x1kbc613gee9" }
+                ]
             },
             {
                 id: 15,
@@ -579,7 +651,9 @@
                 rating: "7.9",
                 year: "1997",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/1997/t/titanik-poster-small.webp",
-                embedUrl: "https://byseqekaho.com/e/ujrz16zm8gke"
+                sources: [
+                    { name: "Filemoon", url: "https://byseqekaho.com/e/ujrz16zm8gke" }
+                ]
             },
             {
                 id: 16,
@@ -588,7 +662,9 @@
                 rating: "8.0",
                 year: "2007",
                 poster: "https://i.ibb.co/zH2CKbt7/r-zgarlivadi.jpg",
-                embedUrl: "https://vidmoly.org/embed-s7ullyx26mc4.html"
+                sources: [
+                    { name: "Vidmoly", url: "https://vidmoly.org/embed-s7ullyx26mc4.html" }
+                ]
             },
             {
                 id: 17,
@@ -597,7 +673,9 @@
                 rating: "7.3",
                 year: "2015",
                 poster: "https://i.ibb.co/qKLr7NL/imgbb-eyii-in.webp",
-                embedUrl: "https://vidmoly.me/v/kttjftvyfiek"
+                sources: [
+                    { name: "Vidmoly", url: "https://vidmoly.me/v/kttjftvyfiek" }
+                ]
             },
             {
                 id: 18,
@@ -606,7 +684,9 @@
                 rating: "7.9",
                 year: "2026",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.kqLzU4qW4B91VwYYgIgvnAHaKs%3Fpid%3DApi&f=1&ipt=1b75fc1b6d5ea3f0202149d9595ead8bf8da6a8669a73347065a03f5c53b383f&ipo=images",
-                embedUrl: "https://drive.google.com/file/d/1svFRK4QP_0sgZVBWHDvVBJEWEtd4L6xl/preview"
+                sources: [
+                    { name: "Drive", url: "https://drive.google.com/file/d/1svFRK4QP_0sgZVBWHDvVBJEWEtd4L6xl/preview" }
+                ]
             },
             {
                 id: 19,
@@ -615,7 +695,9 @@
                 rating: "7.6",
                 year: "2018",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.fuxrdl4rCdgOJ206IhPIjwHaK9%3Fpid%3DApi&f=1&ipt=424dab463739c2d2e87489aa6b824d77edaf969807c555d6ddabb9cd736b96d2&ipo=images",
-                embedUrl: "https://diziplayer.lovable.app/izle/9c146c43-6ae2-4ce4-b976-445b66c7ac9d"
+                sources: [
+                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/9c146c43-6ae2-4ce4-b976-445b66c7ac9d" }
+                ]
             },
             {
                 id: 20,
@@ -624,7 +706,9 @@
                 rating: "6.5",
                 year: "2011",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/the-double-altyazili-film-izle.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/9403a9da-7efd-40fe-98ff-1b063ec07e0f"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/9403a9da-7efd-40fe-98ff-1b063ec07e0f" }
+                ]
             },
             {
                 id: 21,
@@ -633,7 +717,9 @@
                 rating: "7.9",
                 year: "1996",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/matilda-izle.webp",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/f9bcb0b2-4110-4269-ab6a-36eb9a0f1383"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/f9bcb0b2-4110-4269-ab6a-36eb9a0f1383" }
+                ]
             },
             {
                 id: 22,
@@ -641,8 +727,10 @@
                 description: "Eğitim sisteminin ezberci yapısına meydan okuyan, mühendislik fakültesinde okuyan üç yakın arkadaşın dostluğu, hayalleri ve hayatı sorgulatan hem güldürücü hem de derin duygular barındıran unutulmaz bir başyapıt.",
                 rating: "8.4",
                 year: "2009",
-                poster: "https://github.com/hdfilmvakti-original/hdfilmvakti-original.github.io/blob/b2271f36b925aad9cd29f9fb6690b02169355405/OIP-3340741596.jpg?raw=import",
-                embedUrl: "https://mega.nz/embed/BSVnWYoS#hQZ1ksItbeLQN31_Xk8yMZrUmzAtk9PoO33GtR6k6jY"
+                poster: "https://github.com/hdfilmvakti-original/hdfilmvakti-original.github.io/blob/b2271f36b925aad9cd29f9fb6690b02169355405/OIP-3340741596.jpg?raw=true",
+                sources: [
+                    { name: "Mega", url: "https://mega.nz/embed/BSVnWYoS#hQZ1ksItbeLQN31_Xk8yMZrUmzAtk9PoO33GtR6k6jY" }
+                ]
             },
             {
                 id: 23,
@@ -651,7 +739,9 @@
                 rating: "8.4",
                 year: "2016",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.2Vw31Hn_QLdaHFmSCll-twAAAA%3Fpid%3DApi&f=1&ipt=1b44c72cf5841843e42842e7b714bd940de48b52acd0c989d199570d831b91a5&ipo=images",
-                embedUrl: "https://archive.org/embed/senin-adin"
+                sources: [
+                    { name: "Archive", url: "https://archive.org/embed/senin-adin" }
+                ]
             },
             {
                 id: 24,
@@ -660,7 +750,9 @@
                 rating: "7.3",
                 year: "2016",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.5rup1B4d08CiURYYD4mpFwHaKk%3Fpid%3DApi&f=1&ipt=333a0ad397a6fd4dd2b7140d038bfca31ce007f405909f18a8d933b1e79c9017&ipo=images",
-                embedUrl: "https://hdfilmvaktiplayer.lovable.app/watch/90c825ad-454f-4a78-9d27-8d7be6b083a8"
+                sources: [
+                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/90c825ad-454f-4a78-9d27-8d7be6b083a8" }
+                ]
             },
             {
                 id: 25,
@@ -669,7 +761,9 @@
                 rating: "8.2",
                 year: "2008",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.J-xEQV0NB4FsSNaPzvHCkQHaOG%3Fr%3D0%26pid%3DApi&f=1&ipt=b5c71cff6baecb4672ed4471794b9099a6393053b3b7ccb788adb769066b633f&ipo=images",
-                embedUrl: "https://diziplayer.lovable.app/izle/333ae3ca-4980-40b5-a75a-40634d89f86d"
+                sources: [
+                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/333ae3ca-4980-40b5-a75a-40634d89f86d" }
+                ]
             }
         ];
 
@@ -724,12 +818,45 @@
                 window.open(SMARTLINK_URL, '_blank');
             }
 
-            document.getElementById('mainPlayer').src = movie.embedUrl;
             document.getElementById('currentTitle').innerText = movie.title;
             document.getElementById('currentDesc').innerText = movie.description;
             document.getElementById('currentRating').innerHTML = `<i class="fa-solid fa-star"></i> ${movie.rating}`;
             
+            // Kaynak butonlarını oluştur
+            buildSourcesBar(movie.sources);
+
             document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function buildSourcesBar(sources) {
+            const bar = document.getElementById('sourcesBar');
+            bar.innerHTML = '';
+
+            if (!sources || sources.length === 0) {
+                bar.style.display = 'none';
+                return;
+            }
+
+            bar.style.display = 'flex';
+
+            sources.forEach((source, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'source-btn';
+                btn.innerHTML = `<i class="fa-solid fa-server"></i> ${source.name}`;
+                
+                if (index === 0) {
+                    btn.classList.add('active');
+                    document.getElementById('mainPlayer').src = source.url;
+                }
+
+                btn.onclick = () => {
+                    document.querySelectorAll('.source-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById('mainPlayer').src = source.url;
+                };
+
+                bar.appendChild(btn);
+            });
         }
 
         function filterMovies() {
@@ -740,8 +867,11 @@
             loadMovies(filtered);
         }
 
-        // Filmleri hemen yükle
+        // Sayfa açıldığında ilk filmi otomatik yükle ve kaynaklarını getir
         loadMovies(movies);
+        if (movies.length > 0) {
+            selectMovie(movies[0]);
+        }
 
         // PWA Service Worker Kaydı
         if ('serviceWorker' in navigator) {
