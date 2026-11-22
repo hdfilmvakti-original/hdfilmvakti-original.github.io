@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esrarengiz Kasaba İzle - HdFilmVakti</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #000000;
+            color: #e0e0e0;
+            padding: 15px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* Üst Bar ve Geri Dön Butonu */
+        .top-bar {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 14px;
+            border: 1px solid #333333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        /* Ana Düzen */
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .left-column {
+            flex: 1;
+            min-width: 0;
+        }
+        .right-column {
+            width: 260px;
+            flex-shrink: 0;
+        }
+        /* Dizi Başlık Alanı */
+        .movie-header {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+        }
+        .movie-titles h1 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+        .movie-titles span {
+            font-size: 13px;
+            color: #ff9800;
+            font-weight: bold;
+        }
+        /* Alternatifler Açılır Menü Çubuğu */
+        .controls-bar {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 8px 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .alt-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .alt-btn {
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            border: 1px solid #333333;
+            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .alt-btn:hover {
+            background-color: #252525;
+            color: #ffffff;
+        }
+        .alt-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #16181c;
+            border: 1px solid #2c3038;
+            min-width: 210px;
+            z-index: 99;
+            margin-top: 2px;
+        }
+        .alt-menu.show {
+            display: block;
+        }
+        .alt-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            color: #e0e0e0;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px solid #22252b;
+        }
+        .alt-item:last-child {
+            border-bottom: none;
+        }
+        .alt-item:hover, .alt-item.active {
+            background-color: #252830;
+            color: #ff9800;
+        }
+        .alt-quality {
+            font-size: 11px;
+            color: #aaaaaa;
+        }
+        /* Video Player Kutusu */
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background-color: #050505;
+            border: 1px solid #222222;
+            margin-bottom: 10px;
+        }
+        .player-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Önceki / Sonraki Bölüm Tuşları */
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .nav-btn {
+            flex: 1;
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #333333;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .nav-btn:hover:not(:disabled) {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        .nav-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        /* Yorumlar Kutusu */
+        .box-section {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .box-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 6px;
+        }
+        /* Sağ Taraf Bölüm Seç Butonu ve Afiş */
+        .select-ep-btn {
+            width: 100%;
+            background-color: #ff9800;
+            color: #000000;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .select-ep-btn:hover {
+            background-color: #e68900;
+        }
+        .poster-box {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 8px;
+        }
+        .poster-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Kapanabilir Sezon ve Bölüm Seçim Alanı (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-content {
+            background-color: #111111;
+            border: 1px solid #333333;
+            width: 100%;
+            max-width: 550px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            padding: 12px 15px;
+            border-bottom: 1px solid #222222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #161616;
+        }
+        .modal-header h3 {
+            font-size: 15px;
+            color: #ffffff;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            color: #aaaaaa;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-modal:hover {
+            color: #ff9800;
+        }
+        .modal-body {
+            padding: 15px;
+            overflow-y: auto;
+        }
+        /* Sezon Akordeon Listesi */
+        .season-item {
+            border: 1px solid #222222;
+            margin-bottom: 8px;
+            background-color: #161616;
+        }
+        .season-header {
+            padding: 11px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .season-header:hover {
+            background-color: #1f1f1f;
+            color: #ff9800;
+        }
+        .episode-list {
+            display: none;
+            border-top: 1px solid #222222;
+            background-color: #0d0d0d;
+            padding: 8px;
+        }
+        .episode-list.open {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 6px;
+        }
+        .ep-btn {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #2a2a2a;
+            padding: 8px 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .ep-btn:hover {
+            background-color: #252525;
+            border-color: #ff9800;
+        }
+        .ep-btn.active {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .right-column {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Üst Geri Dönüş Çubuğu -->
+    <div class="top-bar">
+        <a href="https://hdfilmvakti-original.github.io/filmler.html" class="back-btn">
+            &#8592; Filmlere Dön
+        </a>
+    </div>
+
+    <div class="main-layout">
+        <!-- Sol Kolon -->
+        <div class="left-column">
+            <!-- Başlık -->
+            <div class="movie-header">
+                <div class="movie-titles">
+                    <h1 id="seriesTitle">Esrarengiz Kasaba</h1>
+                    <span id="currentEpTitle">1. Sezon - 1. Bölüm</span>
+                </div>
+            </div>
+
+            <!-- Alternatifler Butonu ve Açılır Menü -->
+            <div class="controls-bar">
+                <div class="alt-dropdown">
+                    <button class="alt-btn" id="altDropdownBtn" onclick="toggleAltMenu()">
+                        &#9654; Alternatifler &#9662;
+                    </button>
+                    <div class="alt-menu" id="altMenu"></div>
+                </div>
+            </div>
+
+            <!-- Video Player Alanı -->
+            <div class="player-wrapper">
+                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+            </div>
+
+            <!-- Önceki ve Sonraki Bölüm Tuşları -->
+            <div class="episode-nav">
+                <button class="nav-btn" id="prevEpBtn" onclick="changeEpisodeStep(-1)">&#8592; Önceki Bölüm</button>
+                <button class="nav-btn" id="nextEpBtn" onclick="changeEpisodeStep(1)">Sonraki Bölüm &#8594;</button>
+            </div>
+
+            <!-- Yorumlar Bölümü -->
+            <div class="box-section">
+                <div class="box-title">Yorumlar</div>
+                <div id="comments-area"></div>
+            </div>
+        </div>
+
+        <!-- Sağ Kolon (Bölüm Seç Butonu ve Afiş) -->
+        <div class="right-column">
+            <button class="select-ep-btn" onclick="openEpisodeModal()">
+                &#9776; Bölüm Seç
+            </button>
+            <div class="poster-box">
+                <img id="seriesPoster" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.pf1ZOjw_fHISuU770WALNAHaLH%3Fr%3D0%26pid%3DApi&f=1&ipt=68e1dd8924784aa9c586493cdd49b0bc1af4229fc054c0124a8795e4e47b7efb&ipo=images" alt="Esrarengiz Kasaba Afişi">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sezon ve Bölüm Seçim Modalı -->
+<div class="modal-overlay" id="episodeModal" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Sezon ve Bölüm Seçin</h3>
+            <button class="close-modal" onclick="closeEpisodeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="seasonsContainer">
+            <!-- Sezonlar JS ile buraya eklenecek -->
+        </div>
+    </div>
+</div>
+
+<script>
+    const ortakYorumKodu = `<iframe src="https://horizoncomments.lovable.app/embed/22d1caa9-41e6-431f-9511-e620b76052a8" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>`;
+
+    const bolumKaynakMap = {
+        1: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/aed6eebc-5352-4ee1-98cc-93fb512df584" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-b956rjesxsdh.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/8znts30d7zy2" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/a08b4fccea" }
+        ],
+        2: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/815c40eb-c708-4aea-96b7-cbe8d4e72195" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-1lypyfveawuh.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/hbgyx1nvzet0" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/c451dfeed7" }
+        ],
+        3: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/06e5b1b6-7fdf-4f27-9d4a-e31d8374ca2d" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/03b739f80e" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-nlogyyrx5up4.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/crthc157bdk1" }
+        ],
+        4: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/032f7ef1-2bd1-4922-91c7-4899981c730b" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/0600a40901" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/p7e9w3fapipf" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-jtxtyb1cltxl.html" }
+        ],
+        5: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/9398c236-8c25-4a6a-89ac-480ffffbfc33" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-3ofn8l0xykte.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/7q6hu8dhnost" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/c79f7b4f92" }
+        ],
+        6: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/1e6a590e-42dd-406f-9cbb-2d5aebee05cc" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-zv0y18ognsw0.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/odhstuz1xwbh" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/b19870484f" }
+        ],
+        7: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/c8c87486-87ab-41af-8d64-85a8a089fb1f" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/bc115ff222" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-b6m7aejkaf7q.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/vtvc4f1fub9t" }
+        ],
+        8: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0fc244a4-1e0d-4a13-a539-ddf2a4ac0645" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/ab41b12a7b" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/hiijiu1atfwl" }
+        ],
+        9: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/415c284c-9ad6-43a0-9c60-f0d638428185" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/a10e8804dc" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-oe2d0oof4hlu.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/x7d95dj3y35j" }
+        ],
+        10: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/cf88252f-b154-4cbd-8a6e-7f6f65fbcfa5" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/bd1be5230b" },
+            { ad: "Bilinmiyor", url: "https://hdfilmvaktiplayer.lovable.app/watch/4fcce838-ccf4-46df-94d9-95b8de4338db" }
+        ],
+        11: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/1bf95346-4272-4294-9152-91b5f74b31d8" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/d3d8537b3c" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/l1lb08adl8mr" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-8c7u215vrajl.html" }
+        ],
+        12: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/143ade2b-c9d6-4885-8f69-e6f27a49341b" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/b510f6a1e8" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-l3y1av2hvqyk.html" }
+        ],
+        13: [
+            { ad:
