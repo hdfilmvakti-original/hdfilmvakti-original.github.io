@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HdFilmVakti - Film İzle</title>
+    <title>HdFilmVakti - Dizi ve Filmler</title>
     <!-- PWA Manifest ve Tema Rengi -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#e50914">
@@ -120,140 +120,6 @@
             margin: 30px 0;
             display: flex;
             justify-content: center;
-        }
-
-        /* --- YORUM AÇ/KAPA BUTONU --- */
-        .comment-toggle-btn {
-            background-color: var(--primary-red);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        .comment-toggle-btn:hover {
-            background-color: var(--primary-red-hover);
-        }
-
-        .custom-embed-wrap {
-            margin-bottom: 20px;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            display: none;
-        }
-
-        /* --- KAYNAK (PART/SERVER) SEÇİM BUTONLARI --- */
-        .sources-bar {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-            background: #0a0a0a;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .source-btn {
-            background-color: #222;
-            color: #aaa;
-            border: 1px solid var(--border-color);
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .source-btn:hover {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .source-btn.active {
-            background-color: var(--primary-red);
-            color: #fff;
-            border-color: var(--primary-red-hover);
-            box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
-        }
-
-        /* --- VİDEO OYNATICI BÖLÜMÜ --- */
-        .player-section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 40px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-        }
-
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            background-color: #050505;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #222;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .movie-info {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .movie-title-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .movie-title {
-            font-size: 1.8rem;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .movie-badge {
-            background-color: var(--primary-red);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        .movie-description {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 900px;
         }
 
         /* --- FILM IZGARASI (GRID) --- */
@@ -394,7 +260,7 @@
             <i class="fa-solid fa-circle-play"></i> HdFilmVakti
         </a>
         <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterMovies()" placeholder="Film ara...">
+            <input type="text" id="searchInput" onkeyup="filterMovies()" placeholder="Dizi veya film ara...">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </header>
@@ -441,53 +307,23 @@
             <script src="https://bancadeltempoidea.org/22/df15e6041b7eec9c533859810b9faeb9"></script>
         </div>
 
-        <!-- VİDEO OYNATICI SEKSİYONU -->
-        <section class="player-section" id="player">
-            <!-- YORUMLARI AÇIP KAPATMA BUTONU -->
-            <button class="comment-toggle-btn" onclick="toggleComments()">
-                <i class="fa-solid fa-comments"></i> <span id="commentBtnText">Yorumları Aç</span>
-            </button>
-
-            <!-- YORUM EMBED BÖLÜMÜ -->
-            <div class="custom-embed-wrap" id="commentSection">
-                <iframe src="https://horizoncomments.lovable.app/embed/f9f7a9ce-66f9-4389-947a-686aaf354915" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>
-            </div>
-
-            <!-- OYNATICI ÜSTÜ DİNAMİK KAYNAK SEÇİM BUTONLARI -->
-            <div class="sources-bar" id="sourcesBar">
-                <!-- Javascript ile dinamik dolacak -->
-            </div>
-
-            <div class="iframe-container">
-                <iframe id="mainPlayer" src="" allowfullscreen></iframe>
-            </div>
-            <div class="movie-info">
-                <div class="movie-title-wrap">
-                    <h1 class="movie-title" id="currentTitle">Interstellar (Örnek Film)</h1>
-                    <span class="movie-badge" id="currentRating"><i class="fa-solid fa-star"></i> 8.7</span>
-                </div>
-                <p class="movie-description" id="currentDesc">
-                    İnsanlığın son günlerinde, bilim insanları ve astronotlardan oluşan bir ekip, insan türünün devamını sağlamak için uzayda yeni bir yaşanabilir gezegen arayışına girer.
-                </p>
-            </div>
-        </section>
-
         <!-- NATIVE BANNER REKLAMI -->
         <div class="native-banner-wrap">
             <script async="async" data-cfasync="false" src="https://bancadeltempoidea.org/21/63d7e47e87e3d44c8cf68ad63392a3af"></script>
             <div id="container-63d7e47e87e3d44c8cf68ad63392a3af"></div>
         </div>
 
-        <!-- FILM LİSTESİ -->
-        <h2 class="section-title">Popüler Filmler</h2>
+        <!-- DİZİ VE FİLM LİSTESİ -->
+        <h2 class="section-title">Dizi ve Filmler</h2>
         <div class="movies-grid" id="moviesGrid">
-            <!-- Filmler Javascript ile buraya yüklenecek -->
+            <!-- İçerikler Javascript ile buraya yüklenecek -->
         </div>
 
     </div>
 
     <script>
         const SMARTLINK_URL = "https://directyp.org/4/34c0db7896a7f26f4e06d9c3d136054c";
+        const BASE_URL = "https://hdfilmvakti-original.github.io/";
 
         const movies = [
             {
@@ -497,10 +333,7 @@
                 rating: "8.9",
                 year: "2024",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/the-amazing-digital-circus.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/5f356b23-ac7f-443a-b6cb-7446677cecca" },
-                    { name: "DiziMiOynatsak", url: "https://dizimioynatsak.lovable.app/izle/f078027c-864b-4522-bd4c-bc31731d201f" }
-                ]
+                url: `${BASE_URL}amazing-digital-circus.html`
             },
             {
                 id: 2,
@@ -509,11 +342,7 @@
                 rating: "5.9",
                 year: "2018",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2018/b/bizim-koyun-sarkisi-poster-large.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/b6205239-3f8f-40ba-80ad-24b381d185f4" },
-                    { name: "Mega", url: "https://mega.nz/embed/RT1QmS7S#rPR2EZv28m7GO47ZvRzleQDOOfMuSVXdq_ml478IAH0" },
-                    { name: "VidMoly", url: "https://vidmoly.org/embed-a5qqy4aptjk3.html" }
-                ]
+                url: `${BASE_URL}bizim-koyun-sarkisi.html`
             },
             {
                 id: 3,
@@ -522,10 +351,7 @@
                 rating: "no_rating",
                 year: "2012",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.i8pGdzyEej0C8GtVs5wllgHaLH%3Fpid%3DApi&f=1&ipt=c0db4ff792477fec6cb70180e36b0a32e761955f7a255c068ba2cbe652c6a7d3&ipo=images",
-                sources: [
-                    { name: "DiziMiOynatsak", url: "https://dizimioynatsak.lovable.app/izle/3b048f50-6898-49b9-8ac2-94f4bf8af973" },
-                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/51e13b95-de1e-49fb-ade4-85ef8b5f5a3f" }
-                ]
+                url: `${BASE_URL}gravity-falls.html`
             },         
             {
                 id: 4,
@@ -534,10 +360,7 @@
                 rating: "8.7",
                 year: "2014",
                 poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/00a6a0db-a519-4fac-8b67-6832f5e8247a" },
-                    { name: "Byse", url: "https://byseqekaho.com/e/rluobffs5w8m" }
-                ]
+                url: `${BASE_URL}interstellar.html`
             },
             {
                 id: 5,
@@ -546,9 +369,7 @@
                 rating: "8.8",
                 year: "2010",
                 poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/6ec370f4-c724-4f4c-88b0-958c8bf2bfde" }
-                ]
+                url: `${BASE_URL}inception.html`
             },
             {
                 id: 6,
@@ -557,9 +378,7 @@
                 rating: "9.0",
                 year: "2008",
                 poster: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&q=80",
-                sources: [
-                    { name: "Google Drive", url: "https://drive.google.com/file/d/1y033K_ZuW-WuDbzGKr2Q2C0_gAAF4xYB/preview" }
-                ]
+                url: `${BASE_URL}the-dark-knight.html`
             },
             {
                 id: 7,
@@ -568,9 +387,7 @@
                 rating: "6.4",
                 year: "2015",
                 poster: "https://cdn.sinemalar.com/images/movie/219208/poster/minyonlar-1660923401_225x336.jpg",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/35d17a5b-f52d-4073-98d3-04ad8986093a" }
-                ]
+                url: `${BASE_URL}minions.html`
             },
             {
                 id: 8,
@@ -579,9 +396,7 @@
                 rating: "3.7",
                 year: "2025",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2025/s/son-sefer-poster-small.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/8a845d9d-8fa5-48cd-a68b-c32fcc9380b3" }
-                ]
+                url: `${BASE_URL}son-sefer.html`
             },
             {
                 id: 9,
@@ -590,9 +405,7 @@
                 rating: "7.9",
                 year: "2017",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.r1yvlvKtYKDaRh8zDD3P-wHaLa%3Fr%3D0%26pid%3DApi&f=1&ipt=d3b05cfb34bf491f9f90ab33019b8aa51d1022f41b44513def88bcfefb032130&ipo=images",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/e6469800-6502-49e7-a78f-f71f6973eb76" }
-                ]
+                url: `${BASE_URL}wonder.html`
             },
             {
                 id: 10,
@@ -601,9 +414,7 @@
                 rating: "7.7",
                 year: "2015",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2014/l/lego-filmi-poster-small.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/c47d910f-1d5e-4e74-9655-f5bb5b868645" }
-                ]
+                url: `${BASE_URL}lego-movie.html`
             },
             {
                 id: 11,
@@ -612,9 +423,7 @@
                 rating: "6.2",
                 year: "2017",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.MqQX2SvU74PYK2m5o2i99gHaKk%3Fpid%3DApi&f=1&ipt=0d2590c47eea2a892fc9b7f1b471688fdbac8be2eb16da2e92d537cf00324935&ipo=images",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/5208ae25-0db2-4f77-abe2-d41623a6e71b" }
-                ]
+                url: `${BASE_URL}captain-underpants.html`
             },
             {
                 id: 12,
@@ -623,9 +432,7 @@
                 rating: "5.5",
                 year: "2025",
                 poster: "https://cdn.sinemalar.com/images/movie/242031/poster/minecraft-1743236587_225x336.jpg",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/1bf7ac0a-235c-417d-8a8f-5edbaba4ae1c" }
-                ]
+                url: `${BASE_URL}minecraft-movie.html`
             },
             {
                 id: 13,
@@ -634,9 +441,7 @@
                 rating: "6.5",
                 year: "2019",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2019/l/lego-filmi-2-poster-small.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/fd2e3179-8a78-4f7e-a098-08cb000c11fe" }
-                ]
+                url: `${BASE_URL}lego-movie-2.html`
             },
             {
                 id: 14,
@@ -645,9 +450,7 @@
                 rating: "6.1",
                 year: "2017",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2017/l/lego-ninjago-filmi-poster-small.webp",
-                sources: [
-                    { name: "Filemoon", url: "https://byseqekaho.com/e/x1kbc613gee9" }
-                ]
+                url: `${BASE_URL}lego-ninjago-movie.html`
             },
             {
                 id: 15,
@@ -656,10 +459,7 @@
                 rating: "7.9",
                 year: "1997",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/1997/t/titanik-poster-small.webp",
-                sources: [
-                    { name: "Filemoon", url: "https://byseqekaho.com/e/ujrz16zm8gke" },
-                    { name: "Youtube Eski Film", url: "https://www.youtube.com/embed/850v7dUarTo" }
-                ]
+                url: `${BASE_URL}titanic.html`
             },
             {
                 id: 16,
@@ -668,9 +468,7 @@
                 rating: "8.0",
                 year: "2007",
                 poster: "https://i.ibb.co/zH2CKbt7/r-zgarlivadi.jpg",
-                sources: [
-                    { name: "Vidmoly", url: "https://vidmoly.org/embed-s7ullyx26mc4.html" }
-                ]
+                url: `${BASE_URL}ruzgarli-vadi.html`
             },
             {
                 id: 17,
@@ -679,9 +477,7 @@
                 rating: "7.3",
                 year: "2015",
                 poster: "https://i.ibb.co/qKLr7NL/imgbb-eyii-in.webp",
-                sources: [
-                    { name: "Vidmoly", url: "https://vidmoly.me/v/kttjftvyfiek" }
-                ]
+                url: `${BASE_URL}kuzular-firarda.html`
             },
             {
                 id: 18,
@@ -690,9 +486,7 @@
                 rating: "7.9",
                 year: "2026",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.kqLzU4qW4B91VwYYgIgvnAHaKs%3Fpid%3DApi&f=1&ipt=1b75fc1b6d5ea3f0202149d9595ead8bf8da6a8669a73347065a03f5c53b383f&ipo=images",
-                sources: [
-                    { name: "Drive", url: "https://drive.google.com/file/d/1svFRK4QP_0sgZVBWHDvVBJEWEtd4L6xl/preview" }
-                ]
+                url: `${BASE_URL}spider-man-brand-new-day.html`
             },
             {
                 id: 19,
@@ -701,10 +495,7 @@
                 rating: "7.6",
                 year: "2018",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.fuxrdl4rCdgOJ206IhPIjwHaK9%3Fpid%3DApi&f=1&ipt=424dab463739c2d2e87489aa6b824d77edaf969807c555d6ddabb9cd736b96d2&ipo=images",
-                sources: [
-                    { name: "DiziMiOynatsak", url: "https://dizimioynatsak.lovable.app/izle/efe13e04-a592-40a6-8326-e345caee4bc5" },
-                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/9c146c43-6ae2-4ce4-b976-445b66c7ac9d" }
-                ]
+                url: `${BASE_URL}big-city-greens.html`
             },
             {
                 id: 20,
@@ -713,9 +504,7 @@
                 rating: "6.5",
                 year: "2011",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/the-double-altyazili-film-izle.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/9403a9da-7efd-40fe-98ff-1b063ec07e0f" }
-                ]
+                url: `${BASE_URL}the-double.html`
             },
             {
                 id: 21,
@@ -724,10 +513,7 @@
                 rating: "7.9",
                 year: "1996",
                 poster: "https://www.hdfilmcehennemi.nl/images/list/poster/matilda-izle.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/f9bcb0b2-4110-4269-ab6a-36eb9a0f1383" },
-                    { name: "VK Video", url: "https://vk.com/video_ext.php?oid=359563763&id=456241899&hd=2" }
-                ]
+                url: `${BASE_URL}matilda.html`
             },
             {
                 id: 22,
@@ -736,10 +522,7 @@
                 rating: "8.4",
                 year: "2009",
                 poster: "https://github.com/hdfilmvakti-original/hdfilmvakti-original.github.io/blob/b2271f36b925aad9cd29f9fb6690b02169355405/OIP-3340741596.jpg?raw=true",
-                sources: [
-                    { name: "Mega", url: "https://mega.nz/embed/BSVnWYoS#hQZ1ksItbeLQN31_Xk8yMZrUmzAtk9PoO33GtR6k6jY" },
-                    { name: "VK Video", url: "https://vk.com/video_ext.php?oid=784107073&id=456239048&hd=2" }
-                ]
+                url: `${BASE_URL}3-idiots.html`
             },
             {
                 id: 23,
@@ -748,9 +531,7 @@
                 rating: "8.4",
                 year: "2016",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.2Vw31Hn_QLdaHFmSCll-twAAAA%3Fpid%3DApi&f=1&ipt=1b44c72cf5841843e42842e7b714bd940de48b52acd0c989d199570d831b91a5&ipo=images",
-                sources: [
-                    { name: "Archive", url: "https://embedhubvakti.lovable.app/e/582d3a1ff7" }
-                ]
+                url: `${BASE_URL}your-name.html`
             },
             {
                 id: 24,
@@ -759,11 +540,7 @@
                 rating: "7.3",
                 year: "2016",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.5rup1B4d08CiURYYD4mpFwHaKk%3Fpid%3DApi&f=1&ipt=333a0ad397a6fd4dd2b7140d038bfca31ce007f405909f18a8d933b1e79c9017&ipo=images",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/90c825ad-454f-4a78-9d27-8d7be6b083a8" },
-                    { name: "Mail Ru", url: "https://my.mail.ru/video/embed/5867803561248686110" },
-                    { name: "Mega", url: "https://mega.nz/embed/tHcjEIiR#cVp1_neAqo4E_tYRvNOadi8m3RU0nFeNdoLjEimIlj4" }
-                ]
+                url: `${BASE_URL}iftarlik-gazoz.html`
             },
             {
                 id: 25,
@@ -772,9 +549,7 @@
                 rating: "8.2",
                 year: "2008",
                 poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.J-xEQV0NB4FsSNaPzvHCkQHaOG%3Fr%3D0%26pid%3DApi&f=1&ipt=b5c71cff6baecb4672ed4471794b9099a6393053b3b7ccb788adb769066b633f&ipo=images",
-                sources: [
-                    { name: "HDFILMVAKTI Dizi Oynatıcı", url: "https://diziplayer.lovable.app/izle/333ae3ca-4980-40b5-a75a-40634d89f86d" }
-                ]
+                url: `${BASE_URL}mentalist.html`
             },
             {
                 id: 26,
@@ -783,11 +558,7 @@
                 rating: "3.5",
                 year: "2022",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2022/a/afacanlar-is-basa-dustu-poster-small.webp",
-                sources: [
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/5a3a447a-da59-494b-a95c-0879437a5734" },
-                    { name: "VidMoly", url: "https://vidmoly.org/embed-gixp824hgcrt.html" },
-                    { name: "Youtube", url: "https://embed-magic-links.lovable.app/e/35de923dae" }
-                ]
+                url: `${BASE_URL}afacanlar-is-basa-dustu.html`
             },
             {
                 id: 27,
@@ -796,10 +567,7 @@
                 rating: "4.3",
                 year: "2020",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/2020/g/gamonya-hayaller-ulkesi-poster-small.webp",
-                sources: [
-                    { name: "Archive", url: "https://embedhubvakti.lovable.app/e/7499d6b3a1" },
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/e5beb837-2fa0-4c9c-9299-a6464f3cb28f" }
-                ]
+                url: `${BASE_URL}gamonya.html`
             },
             {
                 id: 28,
@@ -808,9 +576,7 @@
                 rating: "8.5",
                 year: "1988",
                 poster: "https://cdn.jetfilmizle.app/uploads/films/1988/a/atesboceklerinin-mezari-poster-small.webp",
-                sources: [
-                    { name: "Archive", url: "https://embedhubvakti.lovable.app/e/771f8d45e1" }
-                ]
+                url: `${BASE_URL}atesboceklerinin-mezari.html`
             },
             {
                 id: 29,
@@ -819,10 +585,7 @@
                 rating: "6.7",
                 year: "2020",
                 poster: "https://webteizle.info/i/afis/b/a9349.jpg",
-                sources: [
-                    { name: "OkRu", url: "https://ok.ru/b50f6bc6-12b1-4fe1-978a-b269126558a4" },
-                    { name: "MailRu", url: "https://my.mail.ru/e5be3863-c8ff-4694-b4ef-8cb112989816" }
-                ]
+                url: `${BASE_URL}a-whisker-away.html`
             },
             {
                 id: 30,
@@ -831,38 +594,23 @@
                 rating: "6.8",
                 year: "2020",
                 poster: "https://webteizle.info/i/afis/b/a13333.jpg",
-                sources: [
-                    { name: "Archive", url: "https://embedhubvakti.lovable.app/e/15106046a6" },
-                    { name: "HDFILMVAKTI Film Oynatıcı", url: "https://hdfilmvaktiplayer.lovable.app/watch/37d5e2b7-c397-4855-aeab-e3b60bf1f2b1" }
-                ]
+                url: `${BASE_URL}soda-gibi-kopuren-kelimeler.html`
             }
         ];
-
-        function toggleComments() {
-            const section = document.getElementById('commentSection');
-            const btnText = document.getElementById('commentBtnText');
-            if (section.style.display === 'block') {
-                section.style.display = 'none';
-                btnText.innerText = 'Yorumları Aç';
-            } else {
-                section.style.display = 'block';
-                btnText.innerText = 'Yorumları Kapat';
-            }
-        }
 
         function loadMovies(movieList) {
             const grid = document.getElementById('moviesGrid');
             grid.innerHTML = '';
 
-            if(movieList.length === 0) {
-                grid.innerHTML = '<p style="color:var(--text-muted);">Aramanıza uygun film bulunamadı.</p>';
+            if (movieList.length === 0) {
+                grid.innerHTML = '<p style="color:var(--text-muted);">Aramanıza uygun dizi veya film bulunamadı.</p>';
                 return;
             }
 
             movieList.forEach(movie => {
                 const card = document.createElement('div');
                 card.className = 'movie-card';
-                card.onclick = () => selectMovie(movie);
+                card.onclick = () => openMovie(movie);
 
                 card.innerHTML = `
                     <div class="poster-wrapper">
@@ -883,51 +631,15 @@
             });
         }
 
-        function selectMovie(movie) {
+        function openMovie(movie) {
+            if (!movie.url) return;
+
             // %25 ihtimalle Smartlink aç
             if (Math.random() < 0.25) {
                 window.open(SMARTLINK_URL, '_blank');
             }
 
-            document.getElementById('currentTitle').innerText = movie.title;
-            document.getElementById('currentDesc').innerText = movie.description;
-            document.getElementById('currentRating').innerHTML = `<i class="fa-solid fa-star"></i> ${movie.rating}`;
-            
-            // Kaynak butonlarını oluştur
-            buildSourcesBar(movie.sources);
-
-            document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function buildSourcesBar(sources) {
-            const bar = document.getElementById('sourcesBar');
-            bar.innerHTML = '';
-
-            if (!sources || sources.length === 0) {
-                bar.style.display = 'none';
-                return;
-            }
-
-            bar.style.display = 'flex';
-
-            sources.forEach((source, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'source-btn';
-                btn.innerHTML = `<i class="fa-solid fa-server"></i> ${source.name}`;
-                
-                if (index === 0) {
-                    btn.classList.add('active');
-                    document.getElementById('mainPlayer').src = source.url;
-                }
-
-                btn.onclick = () => {
-                    document.querySelectorAll('.source-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    document.getElementById('mainPlayer').src = source.url;
-                };
-
-                bar.appendChild(btn);
-            });
+            window.location.href = movie.url;
         }
 
         function filterMovies() {
@@ -938,11 +650,8 @@
             loadMovies(filtered);
         }
 
-        // Sayfa açıldığında ilk filmi otomatik yükle ve kaynaklarını getir
+        // Sayfa açıldığında listeyi yükle
         loadMovies(movies);
-        if (movies.length > 0) {
-            selectMovie(movies[0]);
-        }
 
         // PWA Service Worker Kaydı
         if ('serviceWorker' in navigator) {
