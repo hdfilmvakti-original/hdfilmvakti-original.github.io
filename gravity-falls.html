@@ -493,4 +493,288 @@
             { ad: "VidMoly", url: "https://vidmoly.org/embed-l3y1av2hvqyk.html" }
         ],
         13: [
-            { ad:
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/013f274d-f18f-4bef-a26e-b6c83649789f" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/2f292d7bd4" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-7wtt9bind8xa.html" }
+        ],
+        14: [
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-voiuru5o4yj6.html" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/35c423a8d8" }
+        ],
+        15: [
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/jcavhwx0j61w" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/939edd26c8" }
+        ],
+        16: [
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-ahfbpn61g7o3.html" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/d0cd855dca" }
+        ],
+        17: [
+            { ad: "ByseJikuar", url: "https://byseqekaho.com/e/3buhmvhra4kz" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/406d33aa8e" }
+        ],
+        18: [
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-3wq4zyla58jt.html" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/c6efd56418" },
+            { ad: "Web TV", url: "https://gravityfalls.web.tv/embed/uqnkixxl9l2" }
+        ],
+        19: [
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/0uej0ivkgsjr" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/10e72fa8f5" }
+        ],
+        20: [
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-4t7c9frhwlwy.html" },
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/6c0e2302d4" }
+        ]
+    };
+
+    const sezon2KaynakMap = {
+        1: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/0fe1ca1097" }
+        ],
+        2: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/36f09b6b0a" }
+        ],
+        3: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/a208c135fc" }
+        ],
+        4: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/b363ddb505" }
+        ],
+        5: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/68b411d5d4" }
+        ],
+        6: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/fbf861bc4d" }
+        ],
+        7: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/7881eaf7ae" }
+        ],
+        8: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/25b386ec6b" }
+        ],
+        9: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/54a1f823dd" }
+        ],
+        10: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/b3555c0fd1" }
+        ],
+        11: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/bf749863b7" }
+        ],
+        12: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/ebdb31f7bf" }
+        ],
+        13: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/64738d4f19" }
+        ],
+        14: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/c17fbd5fd2" }
+        ],
+        15: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/3e0dbac2f5" }
+        ],
+        16: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/7eef6782be" }
+        ],
+        17: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/735735b169" }
+        ],
+        18: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/52ac694a00" }
+        ],
+        19: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/606eff76dd" }
+        ],
+        20: [
+            { ad: "Archive", url: "https://embedhubvakti.lovable.app/e/2dedd5b415" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-v6uzzhsovp75.html" }
+        ]
+    };
+
+    function olusturBolumler(adet, sezonKaynaklari = {}) {
+        const liste = [];
+        for (let i = 1; i <= adet; i++) {
+            liste.push({
+                bolumAdi: `${i}. Bölüm`,
+                kaynaklar: sezonKaynaklari[i] || [],
+                yorumKodu: ortakYorumKodu
+            });
+        }
+        return liste;
+    }
+
+    const diziVerisi = {
+        ad: "Esrarengiz Kasaba",
+        afis: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.pf1ZOjw_fHISuU770WALNAHaLH%3Fr%3D0%26pid%3DApi&f=1&ipt=68e1dd8924784aa9c586493cdd49b0bc1af4229fc054c0124a8795e4e47b7efb&ipo=images",
+        sezonlar: [
+            {
+                sezonAdi: "1. Sezon",
+                bolumler: olusturBolumler(20, bolumKaynakMap)
+            },
+            {
+                sezonAdi: "2. Sezon",
+                bolumler: olusturBolumler(20, sezon2KaynakMap)
+            }
+        ]
+    };
+
+    let aktifSezonIndex = 0;
+    let aktifBolumIndex = 0;
+
+    function initPage() {
+        document.getElementById("seriesTitle").textContent = diziVerisi.ad;
+        document.getElementById("seriesPoster").src = diziVerisi.afis;
+        buildSeasonsModal();
+        loadEpisode(0, 0);
+    }
+
+    function buildSeasonsModal() {
+        const container = document.getElementById("seasonsContainer");
+        container.innerHTML = "";
+
+        diziVerisi.sezonlar.forEach((sezon, sIdx) => {
+            const seasonDiv = document.createElement("div");
+            seasonDiv.className = "season-item";
+
+            const header = document.createElement("div");
+            header.className = "season-header";
+            header.innerHTML = `<span>${sezon.sezonAdi}</span><span>&#9662;</span>`;
+            header.onclick = () => {
+                const epList = seasonDiv.querySelector(".episode-list");
+                epList.classList.toggle("open");
+            };
+
+            const epList = document.createElement("div");
+            epList.className = "episode-list" + (sIdx === aktifSezonIndex ? " open" : "");
+
+            sezon.bolumler.forEach((bolum, bIdx) => {
+                const btn = document.createElement("button");
+                btn.className = "ep-btn";
+                btn.dataset.sIdx = sIdx;
+                btn.dataset.bIdx = bIdx;
+                btn.textContent = bolum.bolumAdi;
+                btn.onclick = () => {
+                    loadEpisode(sIdx, bIdx);
+                    closeEpisodeModal();
+                };
+                epList.appendChild(btn);
+            });
+
+            seasonDiv.appendChild(header);
+            seasonDiv.appendChild(epList);
+            container.appendChild(seasonDiv);
+        });
+    }
+
+    function loadEpisode(sIdx, bIdx) {
+        aktifSezonIndex = sIdx;
+        aktifBolumIndex = bIdx;
+
+        const sezon = diziVerisi.sezonlar[sIdx];
+        const bolum = sezon.bolumler[bIdx];
+
+        document.getElementById("currentEpTitle").textContent = `${sezon.sezonAdi} - ${bolum.bolumAdi}`;
+
+        const altMenu = document.getElementById("altMenu");
+        altMenu.innerHTML = "";
+        document.getElementById("altDropdownBtn").innerHTML = `&#9654; Alternatifler (${bolum.kaynaklar.length}) &#9662;`;
+
+        bolum.kaynaklar.forEach((kaynak, kIdx) => {
+            const item = document.createElement("div");
+            item.className = "alt-item" + (kIdx === 0 ? " active" : "");
+            item.innerHTML = `<span>${kaynak.ad}</span><span class="alt-quality">${kaynak.kalite || ''}</span>`;
+            item.onclick = () => changeSource(kaynak.url, item);
+            altMenu.appendChild(item);
+        });
+
+        if (bolum.kaynaklar.length > 0 && bolum.kaynaklar[0].url) {
+            document.getElementById("videoPlayer").src = bolum.kaynaklar[0].url;
+        } else {
+            document.getElementById("videoPlayer").src = "";
+        }
+
+        const commentsArea = document.getElementById("comments-area");
+        commentsArea.innerHTML = bolum.yorumKodu || "";
+        Array.from(commentsArea.querySelectorAll("script")).forEach(oldScript => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        document.querySelectorAll(".ep-btn").forEach(btn => {
+            btn.classList.toggle("active", Number(btn.dataset.sIdx) === sIdx && Number(btn.dataset.bIdx) === bIdx);
+        });
+
+        const isFirst = (sIdx === 0 && bIdx === 0);
+        const lastSIdx = diziVerisi.sezonlar.length - 1;
+        const lastBIdx = diziVerisi.sezonlar[lastSIdx].bolumler.length - 1;
+        const isLast = (sIdx === lastSIdx && bIdx === lastBIdx);
+
+        document.getElementById("prevEpBtn").disabled = isFirst;
+        document.getElementById("nextEpBtn").disabled = isLast;
+    }
+
+    function changeEpisodeStep(step) {
+        let sIdx = aktifSezonIndex;
+        let bIdx = aktifBolumIndex + step;
+
+        if (bIdx < 0) {
+            if (sIdx > 0) {
+                sIdx--;
+                bIdx = diziVerisi.sezonlar[sIdx].bolumler.length - 1;
+            } else {
+                return;
+            }
+        } else if (bIdx >= diziVerisi.sezonlar[sIdx].bolumler.length) {
+            if (sIdx < diziVerisi.sezonlar.length - 1) {
+                sIdx++;
+                bIdx = 0;
+            } else {
+                return;
+            }
+        }
+
+        loadEpisode(sIdx, bIdx);
+    }
+
+    function toggleAltMenu() {
+        document.getElementById("altMenu").classList.toggle("show");
+    }
+
+    function changeSource(url, element) {
+        document.getElementById("videoPlayer").src = url;
+        document.querySelectorAll(".alt-item").forEach(item => item.classList.remove("active"));
+        element.classList.add("active");
+        document.getElementById("altMenu").classList.remove("show");
+    }
+
+    function openEpisodeModal() {
+        document.getElementById("episodeModal").classList.add("show");
+    }
+
+    function closeEpisodeModal() {
+        document.getElementById("episodeModal").classList.remove("show");
+    }
+
+    function closeModalOutside(event) {
+        if (event.target.id === "episodeModal") {
+            closeEpisodeModal();
+        }
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.closest('.alt-dropdown')) {
+            const dropdown = document.getElementById("altMenu");
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }
+    }
+
+    initPage();
+</script>
+
+</body>
+</html>
