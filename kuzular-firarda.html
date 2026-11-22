@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuzular Firarda (2015) - HdFilmVakti</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        body { background-color: #000000; color: #e0e0e0; padding: 15px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .top-bar { background-color: #111111; border: 1px solid #222222; padding: 10px 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; background-color: #1c1c1c; color: #ffffff; text-decoration: none; padding: 8px 14px; border: 1px solid #333333; font-size: 14px; font-weight: bold; }
+        .back-btn:hover { background-color: #ff9800; color: #000000; border-color: #ff9800; }
+        .main-layout { display: flex; gap: 20px; align-items: flex-start; }
+        .left-column { flex: 1; min-width: 0; }
+        .right-column { width: 260px; flex-shrink: 0; }
+        .movie-header { background-color: #111111; border: 1px solid #222222; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .movie-titles h1 { font-size: 18px; color: #ffffff; margin-bottom: 3px; }
+        .movie-titles span { font-size: 13px; color: #888888; }
+        .imdb-box { background-color: #f5c518; color: #000000; padding: 4px 10px; font-weight: bold; font-size: 13px; border-radius: 2px; white-space: nowrap; }
+        .controls-bar { background-color: #111111; border: 1px solid #222222; padding: 8px 15px; margin-bottom: 10px; position: relative; }
+        .alt-dropdown { position: relative; display: inline-block; }
+        .alt-btn { background-color: #1c1c1c; color: #e0e0e0; border: 1px solid #333333; padding: 7px 14px; font-size: 13px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .alt-btn:hover { background-color: #252525; color: #ffffff; }
+        .alt-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #16181c; border: 1px solid #2c3038; min-width: 220px; z-index: 99; margin-top: 2px; }
+        .alt-menu.show { display: block; }
+        .alt-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; color: #e0e0e0; font-size: 13px; font-weight: bold; cursor: pointer; border-bottom: 1px solid #22252b; }
+        .alt-item:last-child { border-bottom: none; }
+        .alt-item:hover, .alt-item.active { background-color: #252830; color: #ff9800; }
+        .alt-quality { font-size: 11px; color: #aaaaaa; }
+        .player-wrapper { position: relative; width: 100%; padding-top: 56.25%; background-color: #050505; border: 1px solid #222222; margin-bottom: 15px; }
+        .player-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .box-section { background-color: #111111; border: 1px solid #222222; padding: 15px; margin-bottom: 15px; }
+        .box-title { font-size: 14px; font-weight: bold; color: #ffffff; margin-bottom: 8px; border-bottom: 1px solid #222222; padding-bottom: 6px; }
+        .description-text { font-size: 13px; line-height: 1.6; color: #cccccc; }
+        .poster-box { background-color: #111111; border: 1px solid #222222; padding: 8px; }
+        .poster-box img { width: 100%; height: auto; display: block; }
+        @media (max-width: 768px) { .main-layout { flex-direction: column; } .right-column { width: 100%; max-width: 300px; margin: 0 auto; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="top-bar">
+        <a href="https://hdfilmvakti-original.github.io/filmler.html" class="back-btn">&#8592; Filmlere Dön</a>
+    </div>
+    <div class="main-layout">
+        <div class="left-column">
+            <div class="movie-header">
+                <div class="movie-titles">
+                    <h1>Kuzular Firarda (2015)</h1>
+                    <span>Shaun the Sheep Movie</span>
+                </div>
+                <div class="imdb-box">IMDb: 7.3</div>
+            </div>
+            <div class="controls-bar">
+                <div class="alt-dropdown">
+                    <button class="alt-btn" onclick="toggleAltMenu()">&#9654; Alternatifler (1) &#9662;</button>
+                    <div class="alt-menu" id="altMenu">
+                        <div class="alt-item active" onclick="changeSource('https://vidmoly.me/v/kttjftvyfiek', this)">
+                            <span>Vidmoly</span>
+                            <span class="alt-quality">1080p</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="player-wrapper">
+                <iframe id="videoPlayer" src="https://vidmoly.me/v/kttjftvyfiek" allowfullscreen></iframe>
+            </div>
+            <div class="box-section">
+                <div class="box-title">Film Hakkında / Açıklama</div>
+                <p class="description-text">
+                    Çiftlikteki rutin ve sıkıcı hayattan bir günlüğüne kaçmak isteyen zeki ve yaramaz koyun Shaun, çiftçilerini uyutup karavanın içinde unuttuktan sonra işlerin kontrolden çıkmasıyla büyük bir karmaşanın ortasında kalır. Karavanın yokuş aşağı hızlanıp hafıza kaybı yaşayan çiftçiyle birlikte karmaşık ve kalabalık şehre sürüklenmesi üzerine Shaun ve tüm sürü, onu geri getirmek için tehlikeli ve kahkaha dolu bir kurtarma operasyonuna girişir. Şehir hayatının gürültüsüne, kılık değiştirme oyunlarına ve başıboş hayvan yakalayıcılarına rağmen dayanışma içinde hareket eden ekip, hem çiftçilerini bulmaya hem de kendi evlerine sağ salim dönmeye çalışır.
+                </p>
+            </div>
+            <div class="box-section">
+                <div class="box-title">Yorumlar</div>
+                <div id="comments-area"></div>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="poster-box">
+                <img src="https://i.ibb.co/qKLr7NL/imgbb-eyii-in.webp" alt="Kuzular Firarda (2015) Afişi">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleAltMenu() { document.getElementById("altMenu").classList.toggle("show"); }
+    function changeSource(url, element) {
+        document.getElementById("videoPlayer").src = url;
+        document.querySelectorAll(".alt-item").forEach(function(item) { item.classList.remove("active"); });
+        element.classList.add("active");
+        document.getElementById("altMenu").classList.remove("show");
+    }
+    window.onclick = function(event) {
+        if (!event.target.closest('.alt-dropdown')) {
+            var dropdown = document.getElementById("altMenu");
+            if (dropdown.classList.contains('show')) dropdown.classList.remove('show');
+        }
+    }
+</script>
+</body>
+</html>
