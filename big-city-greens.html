@@ -3,105 +3,656 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenlerin Büyükşehir Maceraları (2018) - HdFilmVakti</title>
+    <title>Greenlerin Büyükşehir Maceraları İzle - HdFilmVakti</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
-        body { background-color: #000000; color: #e0e0e0; padding: 15px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .top-bar { background-color: #111111; border: 1px solid #222222; padding: 10px 15px; margin-bottom: 15px; display: flex; align-items: center; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; background-color: #1c1c1c; color: #ffffff; text-decoration: none; padding: 8px 14px; border: 1px solid #333333; font-size: 14px; font-weight: bold; }
-        .back-btn:hover { background-color: #ff9800; color: #000000; border-color: #ff9800; }
-        .main-layout { display: flex; gap: 20px; align-items: flex-start; }
-        .left-column { flex: 1; min-width: 0; }
-        .right-column { width: 260px; flex-shrink: 0; }
-        .movie-header { background-color: #111111; border: 1px solid #222222; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .movie-titles h1 { font-size: 18px; color: #ffffff; margin-bottom: 3px; }
-        .movie-titles span { font-size: 13px; color: #888888; }
-        .imdb-box { background-color: #f5c518; color: #000000; padding: 4px 10px; font-weight: bold; font-size: 13px; border-radius: 2px; white-space: nowrap; }
-        .controls-bar { background-color: #111111; border: 1px solid #222222; padding: 8px 15px; margin-bottom: 10px; position: relative; }
-        .alt-dropdown { position: relative; display: inline-block; }
-        .alt-btn { background-color: #1c1c1c; color: #e0e0e0; border: 1px solid #333333; padding: 7px 14px; font-size: 13px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .alt-btn:hover { background-color: #252525; color: #ffffff; }
-        .alt-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #16181c; border: 1px solid #2c3038; min-width: 220px; z-index: 99; margin-top: 2px; }
-        .alt-menu.show { display: block; }
-        .alt-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; color: #e0e0e0; font-size: 13px; font-weight: bold; cursor: pointer; border-bottom: 1px solid #22252b; }
-        .alt-item:last-child { border-bottom: none; }
-        .alt-item:hover, .alt-item.active { background-color: #252830; color: #ff9800; }
-        .alt-quality { font-size: 11px; color: #aaaaaa; }
-        .player-wrapper { position: relative; width: 100%; padding-top: 56.25%; background-color: #050505; border: 1px solid #222222; margin-bottom: 15px; }
-        .player-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .box-section { background-color: #111111; border: 1px solid #222222; padding: 15px; margin-bottom: 15px; }
-        .box-title { font-size: 14px; font-weight: bold; color: #ffffff; margin-bottom: 8px; border-bottom: 1px solid #222222; padding-bottom: 6px; }
-        .description-text { font-size: 13px; line-height: 1.6; color: #cccccc; }
-        .poster-box { background-color: #111111; border: 1px solid #222222; padding: 8px; }
-        .poster-box img { width: 100%; height: auto; display: block; }
-        @media (max-width: 768px) { .main-layout { flex-direction: column; } .right-column { width: 100%; max-width: 300px; margin: 0 auto; } }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #000000;
+            color: #e0e0e0;
+            padding: 15px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* Üst Bar ve Geri Dön Butonu */
+        .top-bar {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 14px;
+            border: 1px solid #333333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        /* Ana Düzen */
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .left-column {
+            flex: 1;
+            min-width: 0;
+        }
+        .right-column {
+            width: 260px;
+            flex-shrink: 0;
+        }
+        /* Dizi Başlık Alanı */
+        .movie-header {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+        }
+        .movie-titles h1 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .movie-meta {
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-bottom: 5px;
+        }
+        .movie-titles span {
+            font-size: 13px;
+            color: #ff9800;
+            font-weight: bold;
+        }
+        /* Alternatifler Açılır Menü Çubuğu */
+        .controls-bar {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 8px 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .alt-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .alt-btn {
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            border: 1px solid #333333;
+            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .alt-btn:hover {
+            background-color: #252525;
+            color: #ffffff;
+        }
+        .alt-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #16181c;
+            border: 1px solid #2c3038;
+            min-width: 210px;
+            z-index: 99;
+            margin-top: 2px;
+        }
+        .alt-menu.show {
+            display: block;
+        }
+        .alt-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            color: #e0e0e0;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px solid #22252b;
+        }
+        .alt-item:last-child {
+            border-bottom: none;
+        }
+        .alt-item:hover, .alt-item.active {
+            background-color: #252830;
+            color: #ff9800;
+        }
+        .alt-quality {
+            font-size: 11px;
+            color: #aaaaaa;
+        }
+        /* Video Player Kutusu */
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background-color: #050505;
+            border: 1px solid #222222;
+            margin-bottom: 10px;
+        }
+        .player-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Önceki / Sonraki Bölüm Tuşları */
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .nav-btn {
+            flex: 1;
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #333333;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .nav-btn:hover:not(:disabled) {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        .nav-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        /* Yorumlar Kutusu */
+        .box-section {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .box-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 6px;
+        }
+        /* Sağ Taraf Bölüm Seç Butonu ve Afiş */
+        .select-ep-btn {
+            width: 100%;
+            background-color: #ff9800;
+            color: #000000;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .select-ep-btn:hover {
+            background-color: #e68900;
+        }
+        .poster-box {
+            background-color: #111111;
+            border: 1px solid #222222;
+            padding: 8px;
+        }
+        .poster-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Kapanabilir Sezon ve Bölüm Seçim Alanı (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-content {
+            background-color: #111111;
+            border: 1px solid #333333;
+            width: 100%;
+            max-width: 550px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            padding: 12px 15px;
+            border-bottom: 1px solid #222222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #161616;
+        }
+        .modal-header h3 {
+            font-size: 15px;
+            color: #ffffff;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            color: #aaaaaa;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-modal:hover {
+            color: #ff9800;
+        }
+        .modal-body {
+            padding: 15px;
+            overflow-y: auto;
+        }
+        /* Sezon Akordeon Listesi */
+        .season-item {
+            border: 1px solid #222222;
+            margin-bottom: 8px;
+            background-color: #161616;
+        }
+        .season-header {
+            padding: 11px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .season-header:hover {
+            background-color: #1f1f1f;
+            color: #ff9800;
+        }
+        .episode-list {
+            display: none;
+            border-top: 1px solid #222222;
+            background-color: #0d0d0d;
+            padding: 8px;
+        }
+        .episode-list.open {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 6px;
+        }
+        .ep-btn {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #2a2a2a;
+            padding: 8px 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .ep-btn:hover {
+            background-color: #252525;
+            border-color: #ff9800;
+        }
+        .ep-btn.active {
+            background-color: #ff9800;
+            color: #000000;
+            border-color: #ff9800;
+        }
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .right-column {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
+
 <div class="container">
+    <!-- Üst Geri Dönüş Çubuğu -->
     <div class="top-bar">
-        <a href="https://hdfilmvakti-original.github.io/filmler.html" class="back-btn">&#8592; Filmlere Dön</a>
+        <a href="https://hdfilmvakti-original.github.io/filmler.html" class="back-btn">
+            &#8592; Filmlere Dön
+        </a>
     </div>
+
     <div class="main-layout">
+        <!-- Sol Kolon -->
         <div class="left-column">
+            <!-- Başlık -->
             <div class="movie-header">
                 <div class="movie-titles">
-                    <h1>Greenlerin Büyükşehir Maceraları (2018)</h1>
-                    <span>Big City Greens</span>
+                    <h1 id="seriesTitle">Greenlerin Büyükşehir Maceraları</h1>
+                    <div class="movie-meta">2018 &bull; IMDb: 7.6</div>
+                    <span id="currentEpTitle">1. Sezon - 1. Bölüm</span>
                 </div>
-                <div class="imdb-box">IMDb: 7.6</div>
             </div>
+
+            <!-- Alternatifler Butonu ve Açılır Menü -->
             <div class="controls-bar">
                 <div class="alt-dropdown">
-                    <button class="alt-btn" onclick="toggleAltMenu()">&#9654; Alternatifler (2) &#9662;</button>
-                    <div class="alt-menu" id="altMenu">
-                        <div class="alt-item active" onclick="changeSource('https://dizimioynatsak.lovable.app/izle/efe13e04-a592-40a6-8326-e345caee4bc5', this)">
-                            <span>DiziMiOynatsak</span>
-                            <span class="alt-quality">1080p</span>
-                        </div>
-                        <div class="alt-item" onclick="changeSource('https://diziplayer.lovable.app/izle/9c146c43-6ae2-4ce4-b976-445b66c7ac9d', this)">
-                            <span>HDFILMVAKTI Dizi Oynatıcı</span>
-                            <span class="alt-quality">1080p</span>
-                        </div>
-                    </div>
+                    <button class="alt-btn" id="altDropdownBtn" onclick="toggleAltMenu()">
+                        &#9654; Alternatifler &#9662;
+                    </button>
+                    <div class="alt-menu" id="altMenu"></div>
                 </div>
             </div>
+
+            <!-- Video Player Alanı -->
             <div class="player-wrapper">
-                <iframe id="videoPlayer" src="https://dizimioynatsak.lovable.app/izle/efe13e04-a592-40a6-8326-e345caee4bc5" allowfullscreen></iframe>
+                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
             </div>
-            <div class="box-section">
-                <div class="box-title">Film Hakkında / Açıklama</div>
-                <p class="description-text">
-                    Kırsal bölgedeki sakin yaşamlarını geride bırakıp kalabalık ve hareketli büyük şehre taşınan Green ailesi, gittikleri her yere kendi renkli ve sıra dışı enerjilerini taşır. Bitmek bilmeyen merakı ve hayal gücüyle her fırsatta yeni bir plan kuran Cricket Green, ablası Tilly, babası Bill ve gözü pek büyükannesi Alice ile birlikte şehir hayatının kurallarını altüst eder. Gökdelenler, kalabalık caddeler ve şaşkın komşular arasında geçen her macera, ailenin birbirine olan bağlılığını ve her koşulda neşeyi bulma becerisini öne çıkarır.
-                </p>
+
+            <!-- Önceki ve Sonraki Bölüm Tuşları -->
+            <div class="episode-nav">
+                <button class="nav-btn" id="prevEpBtn" onclick="changeEpisodeStep(-1)">&#8592; Önceki Bölüm</button>
+                <button class="nav-btn" id="nextEpBtn" onclick="changeEpisodeStep(1)">Sonraki Bölüm &#8594;</button>
             </div>
+
+            <!-- Yorumlar Bölümü -->
             <div class="box-section">
                 <div class="box-title">Yorumlar</div>
                 <div id="comments-area"></div>
             </div>
         </div>
+
+        <!-- Sağ Kolon (Bölüm Seç Butonu ve Afiş) -->
         <div class="right-column">
+            <button class="select-ep-btn" onclick="openEpisodeModal()">
+                &#9776; Bölüm Seç
+            </button>
             <div class="poster-box">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.fuxrdl4rCdgOJ206IhPIjwHaK9%3Fpid%3DApi&f=1&ipt=424dab463739c2d2e87489aa6b824d77edaf969807c555d6ddabb9cd736b96d2&ipo=images" alt="Greenlerin Büyükşehir Maceraları (2018) Afişi">
+                <img id="seriesPoster" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.fuxrdl4rCdgOJ206IhPIjwHaK9%3Fpid%3DApi&f=1&ipt=424dab463739c2d2e87489aa6b824d77edaf969807c555d6ddabb9cd736b96d2&ipo=images" alt="Greenlerin Büyükşehir Maceraları Afişi">
             </div>
         </div>
     </div>
 </div>
+
+<!-- Sezon ve Bölüm Seçim Modalı -->
+<div class="modal-overlay" id="episodeModal" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Sezon ve Bölüm Seçin</h3>
+            <button class="close-modal" onclick="closeEpisodeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="seasonsContainer">
+            <!-- Sezonlar JS ile buraya eklenecek -->
+        </div>
+    </div>
+</div>
+
 <script>
-    function toggleAltMenu() { document.getElementById("altMenu").classList.toggle("show"); }
+    const ortakYorumKodu = `<iframe src="https://horizoncomments.lovable.app/embed/06a1e11d-79ec-4c6d-bcae-7da800d17af8" style="width:100%;height:640px;border:0;color-scheme:dark" loading="lazy" title="Comments"></iframe>`;
+
+    const sezon1KaynakMap = {
+        1: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/33367e8c-84a3-4a06-b82b-702838431e92" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1YkrS1Ym_E5uGBZpJ_uh2UzwPJsQl-wAT/preview" }
+        ],
+        2: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/dcd0fcbc-26a2-4f8d-9d32-22061595bdd9" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1_p9bPdQlpHHfGpGT7w6TFPq-89TfCAcG/preview" }
+        ],
+        3: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/1c96ce22-d832-4be8-90ac-03b7949e4151" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1jICwDKup7gnRaxAhmVZx9JdFyrvExl5g/preview" }
+        ],
+        4: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/d50d82dd-0bf1-4c38-87d7-f5627f96d09d" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/124KzhoYTzFeCxRDcrYNv7NAPVM2TSZHx/preview" }
+        ],
+        5: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5f2430a3-c2d6-4675-9f39-525ccd262102" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1qDLlbJSaW1EelRjhGYj4zGmmARznHf1S/preview" }
+        ],
+        6: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0dbf21ad-9e49-40f5-bb5b-cfc9129d5fe9" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/16m3DaCHL1ChGWYkbg-G4BLYJe15lcAl7/preview" }
+        ],
+        7: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a2329627-954e-4c29-9ead-8d075fe974ff" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1-Ns1rmjz9vqvTF8tHBb1nlPPnx4JAG8Y/preview" }
+        ],
+        8: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/38b6d70b-f488-46df-8d39-82a810fdca07" },
+            { ad: "Google Drive", url: "https://drive.google.com/file/d/1kJ66xYAlr4EHffmhtuni8Riry82Lknf6/preview" }
+        ],
+        9: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/9d0104c3-1e7c-4014-8641-f34752a3ac0e" }
+        ],
+        10: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/50699716-b6e6-4108-9188-80741d31d60f" }
+        ],
+        11: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/f58f0f18-6f66-40d2-b503-3b9dd0088c54" }
+        ]
+    };
+
+    function olusturBolumler(adet, sezonKaynaklari = {}) {
+        const liste = [];
+        for (let i = 1; i <= adet; i++) {
+            liste.push({
+                bolumAdi: `${i}. Bölüm`,
+                kaynaklar: sezonKaynaklari[i] || [],
+                yorumKodu: ortakYorumKodu
+            });
+        }
+        return liste;
+    }
+
+    const diziVerisi = {
+        ad: "Greenlerin Büyükşehir Maceraları",
+        yil: 2018,
+        imdb: "7.6",
+        afis: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.fuxrdl4rCdgOJ206IhPIjwHaK9%3Fpid%3DApi&f=1&ipt=424dab463739c2d2e87489aa6b824d77edaf969807c555d6ddabb9cd736b96d2&ipo=images",
+        sezonlar: [
+            {
+                sezonAdi: "1. Sezon",
+                bolumler: olusturBolumler(20, sezon1KaynakMap)
+            }
+        ]
+    };
+
+    let aktifSezonIndex = 0;
+    let aktifBolumIndex = 0;
+
+    function initPage() {
+        document.getElementById("seriesTitle").textContent = diziVerisi.ad;
+        document.getElementById("seriesPoster").src = diziVerisi.afis;
+        buildSeasonsModal();
+        loadEpisode(0, 0);
+    }
+
+    function buildSeasonsModal() {
+        const container = document.getElementById("seasonsContainer");
+        container.innerHTML = "";
+
+        diziVerisi.sezonlar.forEach((sezon, sIdx) => {
+            const seasonDiv = document.createElement("div");
+            seasonDiv.className = "season-item";
+
+            const header = document.createElement("div");
+            header.className = "season-header";
+            header.innerHTML = `<span>${sezon.sezonAdi}</span><span>&#9662;</span>`;
+            header.onclick = () => {
+                const epList = seasonDiv.querySelector(".episode-list");
+                epList.classList.toggle("open");
+            };
+
+            const epList = document.createElement("div");
+            epList.className = "episode-list" + (sIdx === aktifSezonIndex ? " open" : "");
+
+            sezon.bolumler.forEach((bolum, bIdx) => {
+                const btn = document.createElement("button");
+                btn.className = "ep-btn";
+                btn.dataset.sIdx = sIdx;
+                btn.dataset.bIdx = bIdx;
+                btn.textContent = bolum.bolumAdi;
+                btn.onclick = () => {
+                    loadEpisode(sIdx, bIdx);
+                    closeEpisodeModal();
+                };
+                epList.appendChild(btn);
+            });
+
+            seasonDiv.appendChild(header);
+            seasonDiv.appendChild(epList);
+            container.appendChild(seasonDiv);
+        });
+    }
+
+    function loadEpisode(sIdx, bIdx) {
+        aktifSezonIndex = sIdx;
+        aktifBolumIndex = bIdx;
+
+        const sezon = diziVerisi.sezonlar[sIdx];
+        const bolum = sezon.bolumler[bIdx];
+
+        document.getElementById("currentEpTitle").textContent = `${sezon.sezonAdi} - ${bolum.bolumAdi}`;
+
+        const altMenu = document.getElementById("altMenu");
+        altMenu.innerHTML = "";
+        document.getElementById("altDropdownBtn").innerHTML = `&#9654; Alternatifler (${bolum.kaynaklar.length}) &#9662;`;
+
+        bolum.kaynaklar.forEach((kaynak, kIdx) => {
+            const item = document.createElement("div");
+            item.className = "alt-item" + (kIdx === 0 ? " active" : "");
+            item.innerHTML = `<span>${kaynak.ad}</span><span class="alt-quality">${kaynak.kalite || ''}</span>`;
+            item.onclick = () => changeSource(kaynak.url, item);
+            altMenu.appendChild(item);
+        });
+
+        if (bolum.kaynaklar.length > 0 && bolum.kaynaklar[0].url) {
+            document.getElementById("videoPlayer").src = bolum.kaynaklar[0].url;
+        } else {
+            document.getElementById("videoPlayer").src = "";
+        }
+
+        const commentsArea = document.getElementById("comments-area");
+        commentsArea.innerHTML = bolum.yorumKodu || "";
+        Array.from(commentsArea.querySelectorAll("script")).forEach(oldScript => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        document.querySelectorAll(".ep-btn").forEach(btn => {
+            btn.classList.toggle("active", Number(btn.dataset.sIdx) === sIdx && Number(btn.dataset.bIdx) === bIdx);
+        });
+
+        const isFirst = (sIdx === 0 && bIdx === 0);
+        const lastSIdx = diziVerisi.sezonlar.length - 1;
+        const lastBIdx = diziVerisi.sezonlar[lastSIdx].bolumler.length - 1;
+        const isLast = (sIdx === lastSIdx && bIdx === lastBIdx);
+
+        document.getElementById("prevEpBtn").disabled = isFirst;
+        document.getElementById("nextEpBtn").disabled = isLast;
+    }
+
+    function changeEpisodeStep(step) {
+        let sIdx = aktifSezonIndex;
+        let bIdx = aktifBolumIndex + step;
+
+        if (bIdx < 0) {
+            if (sIdx > 0) {
+                sIdx--;
+                bIdx = diziVerisi.sezonlar[sIdx].bolumler.length - 1;
+            } else {
+                return;
+            }
+        } else if (bIdx >= diziVerisi.sezonlar[sIdx].bolumler.length) {
+            if (sIdx < diziVerisi.sezonlar.length - 1) {
+                sIdx++;
+                bIdx = 0;
+            } else {
+                return;
+            }
+        }
+
+        loadEpisode(sIdx, bIdx);
+    }
+
+    function toggleAltMenu() {
+        document.getElementById("altMenu").classList.toggle("show");
+    }
+
     function changeSource(url, element) {
         document.getElementById("videoPlayer").src = url;
-        document.querySelectorAll(".alt-item").forEach(function(item) { item.classList.remove("active"); });
+        document.querySelectorAll(".alt-item").forEach(item => item.classList.remove("active"));
         element.classList.add("active");
         document.getElementById("altMenu").classList.remove("show");
     }
-    window.onclick = function(event) {
-        if (!event.target.closest('.alt-dropdown')) {
-            var dropdown = document.getElementById("altMenu");
-            if (dropdown.classList.contains('show')) dropdown.classList.remove('show');
+
+    function openEpisodeModal() {
+        document.getElementById("episodeModal").classList.add("show");
+    }
+
+    function closeEpisodeModal() {
+        document.getElementById("episodeModal").classList.remove("show");
+    }
+
+    function closeModalOutside(event) {
+        if (event.target.id === "episodeModal") {
+            closeEpisodeModal();
         }
     }
+
+    window.onclick = function(event) {
+        if (!event.target.closest('.alt-dropdown')) {
+            const dropdown = document.getElementById("altMenu");
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }
+    }
+
+    initPage();
 </script>
+
 </body>
 </html>
