@@ -517,6 +517,68 @@
         ]
     };
 
+    const sezon2KaynakMap = {
+        1: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/acf1a5d2-0c18-4c28-a56e-cad146626b4d" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-qmu0qsa4fkbr.html" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-zz2vbjbl4ijr.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/sfga74fjgdfg" },
+            { ad: "Mp4Upload", url: "https://www.mp4upload.com/embed-piyw09o4nybp.html" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/mPhxQ_wpZ-C1i" },
+            { ad: "Streamtape", url: "https://streamtape.com/e/q7wDlZ8G8efzq6L/2X1.mp4" }
+        ],
+        2: [
+            { ad: "VdoHide", url: "https://fembed.co/embed/V2Uh_q-tUrsHx" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/caeee74a-1d14-4b90-9bbe-35bc228fc761" },
+            { ad: "Mp4Upload", url: "https://www.mp4upload.com/embed-wrlg0c6ulllt.html" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-bg6ikmjmceq8.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/bwq9tjy2xzjt" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-ddja3u30mb93.html" }
+        ],
+        3: [
+            { ad: "VdoHide", url: "https://fembed.co/embed/k_Ancp3-ECtcC" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-h04y46395pbt.html" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/ae8223e1-675b-4bba-b4e9-d8d92c475981" }
+        ],
+        4: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a4c5a0dc-e249-4166-aac6-c612b92872bc" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-ydpfukkrj0fx.html" }
+        ],
+        5: [
+            { ad: "Vidmoly", url: "https://vidmoly.org/embed-i7sbmqu7y0jp.html" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/f3dcbc92-3671-4c5c-8344-4296574ad84f" }
+        ],
+        6: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/2bf0bfa3-f2a7-4d78-ac1d-76223ed13ce2" },
+            { ad: "SuperVideo", url: "https://superplayer.ws/e/6d52f3feb358" }
+        ],
+        7: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/fb080f41-74b0-4b95-a470-e8be0afd22cc" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/5_bvDc-qnvWPv" }
+        ],
+        8: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/8844dc72-56aa-4a67-a606-38ad30caf840" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/0-wDxY6m2s_eB" }
+        ],
+        9: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/6dbe1c28-ac91-4458-ab40-b55513280270" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/s5-ZI_vzIWD3e" }
+        ],
+        10: [
+            { ad: "VdoHide", url: "https://fembed.co/embed/cJ_9Y-ifW3H3A" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/42763078-76c5-4c61-ba81-bb0b1a87902a" }
+        ],
+        11: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/6f60a3eb-1b96-4a86-9382-50a16deef67c" }
+        ],
+        12: [
+            { ad: "VdoHide", url: "https://fembed.co/embed/y_laaI2I-Yz8x" }
+        ],
+        13: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5cd1afc2-9a01-4201-af85-e899181d1322" }
+        ]
+    };
+
     function olusturBolumler(adet, sezonKaynaklari = {}) {
         const liste = [];
         for (let i = 1; i <= adet; i++) {
@@ -538,6 +600,10 @@
             {
                 sezonAdi: "1. Sezon",
                 bolumler: olusturBolumler(30, sezon1KaynakMap)
+            },
+            {
+                sezonAdi: "2. Sezon",
+                bolumler: olusturBolumler(20, sezon2KaynakMap)
             }
         ]
     };
