@@ -154,6 +154,7 @@
             background-color: #050505;
             border: 1px solid #222222;
             margin-bottom: 10px;
+            overflow: hidden;
         }
         .player-wrapper iframe {
             position: absolute;
@@ -161,7 +162,10 @@
             left: 0;
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             border: none;
+            display: block;
         }
         /* Önceki / Sonraki Bölüm Tuşları */
         .episode-nav {
@@ -384,7 +388,7 @@
 
             <!-- Video Player Alanı -->
             <div class="player-wrapper">
-                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+                <iframe id="videoPlayer" src="" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
             </div>
 
             <!-- Önceki ve Sonraki Bölüm Tuşları -->
@@ -430,36 +434,28 @@
 
     const sezon1KaynakMap = {
         1: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/33367e8c-84a3-4a06-b82b-702838431e92" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1YkrS1Ym_E5uGBZpJ_uh2UzwPJsQl-wAT/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/33367e8c-84a3-4a06-b82b-702838431e92" }
         ],
         2: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/dcd0fcbc-26a2-4f8d-9d32-22061595bdd9" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1_p9bPdQlpHHfGpGT7w6TFPq-89TfCAcG/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/dcd0fcbc-26a2-4f8d-9d32-22061595bdd9" }
         ],
         3: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/1c96ce22-d832-4be8-90ac-03b7949e4151" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1jICwDKup7gnRaxAhmVZx9JdFyrvExl5g/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/1c96ce22-d832-4be8-90ac-03b7949e4151" }
         ],
         4: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/d50d82dd-0bf1-4c38-87d7-f5627f96d09d" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/124KzhoYTzFeCxRDcrYNv7NAPVM2TSZHx/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/d50d82dd-0bf1-4c38-87d7-f5627f96d09d" }
         ],
         5: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5f2430a3-c2d6-4675-9f39-525ccd262102" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1qDLlbJSaW1EelRjhGYj4zGmmARznHf1S/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5f2430a3-c2d6-4675-9f39-525ccd262102" }
         ],
         6: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0dbf21ad-9e49-40f5-bb5b-cfc9129d5fe9" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/16m3DaCHL1ChGWYkbg-G4BLYJe15lcAl7/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0dbf21ad-9e49-40f5-bb5b-cfc9129d5fe9" }
         ],
         7: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a2329627-954e-4c29-9ead-8d075fe974ff" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1-Ns1rmjz9vqvTF8tHBb1nlPPnx4JAG8Y/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a2329627-954e-4c29-9ead-8d075fe974ff" }
         ],
         8: [
-            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/38b6d70b-f488-46df-8d39-82a810fdca07" },
-            { ad: "Google Drive", url: "https://drive.google.com/file/d/1kJ66xYAlr4EHffmhtuni8Riry82Lknf6/preview" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/38b6d70b-f488-46df-8d39-82a810fdca07" }
         ],
         9: [
             { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/9d0104c3-1e7c-4014-8641-f34752a3ac0e" }
@@ -512,7 +508,20 @@
         25: [
             { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/16211d6b-8991-4358-ae82-c4a49890ad06" }
         ],
+        26: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/7c1bd5c4-9956-4caf-ab52-e651ec3989ba" }
+        ],
+        27: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/23e8d5c3-3a97-4da3-bb4d-4c12728d7381" }
+        ],
+        28: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/915afd48-bd3f-45df-89af-99790088c854" }
+        ],
+        29: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/cacb9f95-049f-41b0-b093-50c55f19c462" }
+        ],
         30: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/85d5bae1-495c-4ee6-96bf-02b4edf50760" },
             { ad: "StreamRuby", url: "https://nuvorel.top/e/jejk6e13b4b7?rap7c5roebejl0.streamruby.net/i/04/00509/jejk6e13b4b7" }
         ]
     };
@@ -572,10 +581,157 @@
             { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/6f60a3eb-1b96-4a86-9382-50a16deef67c" }
         ],
         12: [
-            { ad: "VdoHide", url: "https://fembed.co/embed/y_laaI2I-Yz8x" }
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/18bf6e67-5057-4270-850a-b81611aba374" }
         ],
         13: [
             { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5cd1afc2-9a01-4201-af85-e899181d1322" }
+        ],
+        14: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5eb8a69b-45b6-4855-81cb-8379a9772cd3" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-ib8t5wfi1mdn.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/7rfzmtv65m86" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/g2-9A_7nTagrG" }
+        ],
+        15: [
+            { ad: "Wistia", url: "https://embedhubvakti.lovable.app/e/ab460ee75f" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-av1n432cq0jt.html" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/7640a329-b0cd-45ad-b13f-e80c235b3bd7" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-9uu2d1vjvg66.html" }
+        ],
+        16: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/2668ecfd-498c-445d-ac86-d1bd95cfeaca" },
+            { ad: "VidMoly", url: "https://vidmoly.org/embed-y5p0c2oehhq7.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/ixv8sq8lkoeq" }
+        ],
+        17: [
+            { ad: "Archive", url: "https://m3u8player.app/en/embed/player/?video_url=https%253A%252F%252Farchive.org%252Fdownload%252F2-x-17%252F2X17.mp4&autoplay=false&type=mp4" },
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bd7a3695-ca05-4a7b-b832-39b3e6a3cab5" }
+        ],
+        18: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0b235bc0-fd40-417d-9df6-994e6bf8d334" },
+            { ad: "Archive", url: "https://m3u8player.app/en/embed/player/?video_url=https%253A%252F%252Farchive.org%252Fdownload%252F2-x-18%252F2X18.mp4&autoplay=false&type=mp4" }
+        ],
+        19: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/80c29fd5-68ca-4fdb-be8a-4f075c9e7f90" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/MKK7Al_65l-jz" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-evs9cj5ytl7z.html" }
+        ],
+        20: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/e2a8a784-d601-45a0-a9ad-655b3f943114" }
+        ],
+        21: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/4448edae-f45a-4d7d-a5ed-8ca45933203c" }
+        ],
+        22: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/22f344d4-7e55-455f-9993-67fce372a57e" }
+        ],
+        23: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/009f93a9-b7e7-467d-be0c-3628afb14c3d" }
+        ],
+        24: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/4aab492f-73ab-47c2-8b82-2482c72bf93e" }
+        ],
+        25: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0cbc35ad-c165-415c-84a6-d8e61cb4ca19" }
+        ],
+        26: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/f3a95109-4283-4c61-9650-aa873ff53a46" }
+        ],
+        27: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bf04ba70-582f-46a7-9151-babfdb168e2f" }
+        ],
+        28: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/819e7c2f-562c-4936-838d-1c4b002edde6" }
+        ],
+        29: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/283d4e3a-58b3-4daf-a8ee-43463c225c15" }
+        ],
+        30: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/d6a7dfc9-6e0f-42ae-bd7a-865082f14d0f" }
+        ]
+    };
+
+    const sezon3KaynakMap = {
+        1: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/69af4f12-da31-42a6-ae58-c63b350ea778" }
+        ],
+        2: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/0c39e3d2-bb9c-47c2-bfac-f01462717c57" }
+        ],
+        3: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/9e0a086f-95ef-4e64-978e-84d408b90455" }
+        ],
+        4: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a9953e35-6210-4ad8-902d-680840ea5ac0" }
+        ],
+        5: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/fc122c7d-7a36-41ce-8633-d17bc94baf4b" }
+        ],
+        6: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/a49e872f-882a-4fac-a4ed-0e468b09f562" }
+        ],
+        7: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/99328d3c-2776-4378-9762-f4d9f7895b51" }
+        ],
+        8: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/09794070-61e3-4b3c-94e2-dc0057059dac" }
+        ],
+        9: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/4fe2566f-d4c2-48f1-aecd-69fdf6c2d36c" }
+        ],
+        10: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bcce46c1-4dfe-424e-a07f-2e7a55ad4947" }
+        ],
+        11: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/ac8b85f3-ba57-4b6b-b3f1-eddccec30b05" }
+        ],
+        12: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/d139683d-d9be-4405-9e38-58ada32b555d" }
+        ],
+        13: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/b381dd5f-9929-42d1-afe8-0748880f7ef8" }
+        ],
+        14: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bde7676d-0212-45f1-9123-7ce0f50ad5b5" }
+        ],
+        15: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/c3e3f066-0a14-40b0-bce4-e85a5721c335" }
+        ],
+        16: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/8f758ea1-28c3-435d-ad96-fb56d4d68227" }
+        ],
+        17: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/7abbeee0-8e62-42d5-93e4-024b4fe40267" }
+        ],
+        18: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bcb58c1a-fac4-44c6-a0f5-23b9397f28b7" }
+        ],
+        19: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/4b4e8879-9cd7-4444-8715-409acb96f1f6" }
+        ],
+        20: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/bd3670cb-f822-400b-b2b7-7bc8f706a823" }
+        ]
+    };
+
+    const sezon4KaynakMap = {};
+
+    const sezon5KaynakMap = {
+        1: [
+            { ad: "Vidcherry", url: "https://vidcherry.lovable.app/embed/5b77d160-57c4-47ad-94b8-b02cb40e9e4e" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-nwgt811jsk11.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/oz4t1nc7m35j" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/Ml3Y-QB_Y4ubT" },
+            { ad: "SuperVideo", url: "https://superplayer.ws/e/881719ced43a" },
+            { ad: "Mp4Upload", url: "https://www.mp4upload.com/embed-xuzwy2hroyza.html" }
+        ],
+        2: [
+            { ad: "Wistia", url: "https://embedhubvakti.lovable.app/e/ab460ee75f" },
+            { ad: "VdoHide", url: "https://fembed.co/embed/twIj_nJ-MabVe" },
+            { ad: "StreamRuby", url: "https://nuvorel.top/embed-xhn0cvlxcw96.html" },
+            { ad: "Filemoon", url: "https://byseqekaho.com/e/3yuca7u9yfid" },
+            { ad: "SuperVideo", url: "https://superplayer.ws/e/5b13cc5f5b4c" },
+            { ad: "Mp4Upload", url: "https://www.mp4upload.com/embed-c76bhincqxje.html" }
         ]
     };
 
@@ -603,7 +759,19 @@
             },
             {
                 sezonAdi: "2. Sezon",
-                bolumler: olusturBolumler(20, sezon2KaynakMap)
+                bolumler: olusturBolumler(30, sezon2KaynakMap)
+            },
+            {
+                sezonAdi: "3. Sezon",
+                bolumler: olusturBolumler(20, sezon3KaynakMap)
+            },
+            {
+                sezonAdi: "4. Sezon",
+                bolumler: olusturBolumler(30, sezon4KaynakMap)
+            },
+            {
+                sezonAdi: "5. Sezon",
+                bolumler: olusturBolumler(20, sezon5KaynakMap)
             }
         ]
     };
